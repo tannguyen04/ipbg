@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IPBG Views feature.
+ */
+
+include_once 'ipbg_views.features.inc';
