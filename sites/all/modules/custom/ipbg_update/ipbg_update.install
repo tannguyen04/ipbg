@@ -4,9 +4,11 @@
  * Implements hook_update_N().
  * Enable modules, disable module
  */
-function ipbg_update_update_7002(&$sandbox) {
-  $modules = array('diff');
+function ipbg_update_update_7003(&$sandbox) {
+  $modules = array('diff', 'panels', 'panels_everywhere');
   module_enable($modules);
+  $modules = array('context');
+  module_disable($modules);
   features_revert_module('content_type');
   features_revert_module('ipbg_views');
 }
