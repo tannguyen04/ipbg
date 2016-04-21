@@ -5,10 +5,11 @@
  * Enable modules, disable module
  */
 function ipbg_update_update_7003(&$sandbox) {
-  $modules = array('diff', 'panels', 'panels_everywhere', 'strongarm');
+  $modules = array('diff', 'panels', 'panels_everywhere', 'strongarm', 'owlcarousel_ui', 'owlcarousel_views', 'owlcarousel_fields', 'commerce_features', 'product_types');
   module_enable($modules);
   $modules = array('context');
   module_disable($modules);
   features_revert_module('content_type');
   features_revert_module('ipbg_views');
+  features_revert_module('ipbg_pages');
 }
