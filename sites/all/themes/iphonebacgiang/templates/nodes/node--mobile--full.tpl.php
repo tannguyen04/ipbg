@@ -81,7 +81,7 @@
  */
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="content row"<?php print $content_attributes; ?>>
+  <div class="content row" <?php print $content_attributes; ?>>
     <?php print render($title_prefix); ?>
     <div class="media col-xs-12 col-sm-6">
       <?php print render($content['product:field_images']); ?>
