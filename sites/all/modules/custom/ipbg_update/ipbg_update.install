@@ -5,7 +5,7 @@
  * Enable modules, disable module
  */
 function ipbg_update_update_7003(&$sandbox) {
-  $modules = array('diff', 'panels', 'panels_everywhere');
+  $modules = array('diff', 'panels', 'panels_everywhere', 'strongarm');
   module_enable($modules);
   $modules = array('context');
   module_disable($modules);
