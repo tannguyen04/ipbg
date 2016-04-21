@@ -187,8 +187,22 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class'] = 'span3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Related */
+  $handler->display->display_options['fields']['field_node_related']['id'] = 'field_node_related';
+  $handler->display->display_options['fields']['field_node_related']['table'] = 'field_data_field_node_related';
+  $handler->display->display_options['fields']['field_node_related']['field'] = 'field_node_related';
+  $handler->display->display_options['fields']['field_node_related']['label'] = '';
+  $handler->display->display_options['fields']['field_node_related']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_node_related']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_node_related']['settings'] = array(
+    'view_mode' => 'teaser',
+    'links' => 1,
+  );
+  $handler->display->display_options['fields']['field_node_related']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_node_related']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -196,23 +210,6 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
-  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
-  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
-  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['tid']['default_argument_options']['anyall'] = '+';
-  $handler->display->display_options['arguments']['tid']['default_argument_options']['vocabularies'] = array(
-    'manufacturer' => 'manufacturer',
-    'series' => 'series',
-  );
-  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['tid']['break_phrase'] = TRUE;
-  $handler->display->display_options['arguments']['tid']['reduce_duplicates'] = TRUE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -223,7 +220,6 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -996,10 +992,10 @@ function ipbg_views_views_default_views() {
     t('Select any filter and click on Apply to see results'),
     t('Related'),
     t('Sản phẩm khác'),
-    t('All'),
     t('Tất cả'),
     t('Accessories'),
     t('Phụ kiện'),
+    t('All'),
     t('By term'),
     t('Trang'),
     t('Điện thoại'),

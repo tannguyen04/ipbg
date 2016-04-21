@@ -1,0 +1,13 @@
+name = IPGB Pages
+core = 7.x
+package = IPBG Features
+version = 7.x-1.0
+project = ipgb_pages
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = node_view__mobile
+features[page_manager_handlers][] = node_view__panel_context_938b17c4-6dd6-4377-8309-877e88805f43
+features[page_manager_handlers][] = site_template__product
+features[page_manager_handlers][] = site_template__site-wide

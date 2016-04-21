@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IPGB Pages feature.
+ */
+
+include_once 'ipgb_pages.features.inc';

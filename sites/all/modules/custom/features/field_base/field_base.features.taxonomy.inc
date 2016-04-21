@@ -17,6 +17,14 @@ function field_base_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'color' => array(
+      'name' => 'Color',
+      'machine_name' => 'color',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'manufacturer' => array(
       'name' => 'Manufacturer',
       'machine_name' => 'manufacturer',
