@@ -33,3 +33,12 @@ function product_types_commerce_product_default_types() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function product_types_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
