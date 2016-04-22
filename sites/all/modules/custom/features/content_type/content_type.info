@@ -6,7 +6,6 @@ project = content_type
 dependencies[] = blockreference
 dependencies[] = commerce_cart
 dependencies[] = commerce_product_reference
-dependencies[] = ds
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_base
