@@ -880,7 +880,6 @@ function _block_render_blocks($region_blocks) {
   // instead of doing one cache_get() call per block.
   $cached_blocks = array();
   $cids = array();
-
   if ($cacheable) {
     foreach ($region_blocks as $key => $block) {
       if (!isset($block->content)) {
@@ -910,6 +909,7 @@ function _block_render_blocks($region_blocks) {
       // Try fetching the block from the previously loaded cache entries.
       if (isset($cached_blocks[$cid])) {
         $array = $cached_blocks[$cid]->data;
+
       }
       else {
         $array = module_invoke($block->module, 'block_view', $block->delta);
@@ -924,7 +924,6 @@ function _block_render_blocks($region_blocks) {
           cache_set($cid, $array, 'cache_block', CACHE_TEMPORARY);
         }
       }
-
       if (isset($array) && is_array($array)) {
         foreach ($array as $k => $v) {
           $block->$k = $v;

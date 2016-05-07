@@ -899,6 +899,7 @@ function panels_load_display($did) {
  * @return object $display instanceof panels_display \n
  */
 function panels_save_display(&$display) {
+
   $update = (isset($display->did) && is_numeric($display->did)) ? array('did') : array();
   if (empty($display->uuid) || !ctools_uuid_is_valid($display->uuid)) {
     $display->uuid = ctools_uuid_generate();

@@ -1,8 +1,7 @@
 <?php
   //Template lion
 ?>
-<div class="layout-lion">
-
+<div class="layout-lion row">
   <?php if(!empty($content['top_content'])): ?>
     <div class="region-top-content">
       <?php print $content['top_content']; ?>

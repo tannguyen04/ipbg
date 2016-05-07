@@ -80,15 +80,35 @@
  * @ingroup themeable
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <?php print render($content['field_image']); ?>
-    <?php print render($content['field_rating']); ?>
-    <?php print render($content['product:field_color_ref']); ?>
-    <?php print render($title_suffix); ?>
-    <h2 <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
-    <?php print render($content['product:commerce_price']); ?>
+<article id="node-<?php print $node->nid; ?>" class="box-product box-product-teaser <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div class="box-content"<?php print $content_attributes; ?>>
+    <div class="box-content-top">
+      <?php
+        if (isset($content['field_badge'])) {
+          print '<div class="box-product-badge ' . $content['field_badge']['#items'][0]['value'] . '"><p>'. $content['field_badge'][0]['#markup'] .'</p></div>';
+        }
+      ?>
+      <?php print render($title_prefix); ?>
+      <div class="box-product-teaser--image">
+          <?php print render($content['product:field_images'][0]); ?>
+      </div>
+      <div class="box-product--rating-colours box-product-teaser--rating-colours">
+          <?php print render($content['field_rating']); ?>
+          <?php print render($content['product:field_color_ref']); ?>
+      </div>
+      <?php print render($title_suffix); ?>
+      <h2 class="box-product-teaser--title node-title title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
+      <div class="box-product-short-description">
+        this is text test, please. please please !!
+      </div>
+    </div>
+    <div class="box-content-bottom">
+      <div class="box-product--price box-product-teaser--price">
+        <?php print render($content['product:commerce_price']); ?>
+      </div>
+    </div>
+  </div>
+  <div class="box-footer">
     <?php print render($content['product:commerce_stock']); ?>
   </div>
-</div>
+</article>

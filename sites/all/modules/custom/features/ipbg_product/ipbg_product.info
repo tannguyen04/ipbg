@@ -1,4 +1,4 @@
 name = IPBG Product
 description = Custom product display
-version = 7.x - 1.0
 core = 7.x
+files[] = views/views_plugin_ipbg_product_pager_full.inc

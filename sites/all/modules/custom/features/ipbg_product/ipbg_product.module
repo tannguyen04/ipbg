@@ -1,4 +1,29 @@
 <?php
+/**
+ * Advertise the current views api version
+ */
+function ipbg_product_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'ipbg_product') . '/views',
+  );
+}
+
+function ipbg_product_views_plugins() {
+  return array(
+    'module' => 'ipbg_product',
+    'pager' => array(
+      'ipbg_product' => array(
+        'title' => t('IPBG product pager full'),
+        'help' => t('ipbg_product_pager'),
+        'help topic' => '',
+        'handler' => 'views_plugin_ipbg_product_pager_full',
+        'uses options' => TRUE,
+        'parent' => 'full',
+      ),
+    ),
+  );
+}
 
 /**
  * Implements hook_theme().
@@ -220,4 +245,6 @@ function ipbg_product_ctools_plugin_directory($module, $plugin) {
     return "plugins/$plugin";
   }
 }
+
+
 
