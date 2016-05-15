@@ -54,5 +54,7 @@ function ipbg_update_update_7009(&$sandbox) {
     'fe_nodequeue'
   );
   module_enable($modules);
+  $modules = array('toolbar');
+  module_disable($modules);
   features_revert_module('ipbg_views');
 }
