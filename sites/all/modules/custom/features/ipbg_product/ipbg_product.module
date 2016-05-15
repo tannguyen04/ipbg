@@ -43,6 +43,10 @@ function ipbg_product_theme($existing, $type, $theme, $path) {
 function ipbg_product_preprocess_anchor_link_product_display(&$variables) {
   $node = $variables['node'];
   $features_overview = field_get_items('node', $node, 'field_features_overview');
+  $anchor_links[] = array(
+    'title' => $node->title,
+    'fragment' => '',
+  );
   if (!empty($features_overview)) {
     $anchor_links[] = array(
       'title' => t('Overview'),
@@ -83,7 +87,11 @@ function ipbg_product_preprocess_anchor_link_product_display(&$variables) {
         'external' => TRUE,
       ),
     );
-    $items[] = theme_link($variable_link);
+    if (!empty($anchor_link['fragment'])){
+      $items[] = theme_link($variable_link);
+    }else {
+      $items[] = $anchor_link['title'];
+    }
   }
   $variables['items'] = $items;
   $variables['title'] = $node->title;
@@ -220,16 +228,22 @@ function ipbg_product_field_formatter_view($entity_type, $entity, $field, $insta
           '#title' => $items[0]['title'],
         ),
         'view_owlcarousel' => array(
-          '#theme' => 'item_list',
-          '#items' => array(
-            array('data' => t('Gallery'), 'class' => array('view-gallery')),
-            array('data' => t('Video'), 'class' => array('view-video')),
-          ),
+          '#markup' => '<a class="show-slide" href="#">'.t('View Gallery').'</a>'
         ),
         'owlcarousel' => array(
           '#theme' => 'owlcarousel',
           '#items' => $items_group,
           '#settings' => $settings_group,
+          '#prefix' => '<div class="wrap-owlcarousel modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div><div class="modal-body">',
+          '#suffix' => '</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div></div>',
         ),
       );
     }

@@ -29,8 +29,8 @@
  */
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="row"<?php print $content_attributes; ?>>
-    <div class="col-xs-12 col-sm-6">
+  <div class="box-features-product"<?php print $content_attributes; ?>>
+    <div class="box-features-product--info">
       <?php
         if (isset($content['field_title_box'])) {
           print render($content['field_title_box']);
@@ -40,7 +40,7 @@
         }
       ?>
     </div>
-    <div class="col-xs-12 col-sm-6">
+    <div class="box-features-product--media">
       <?php
         if (isset($content['field_media'])) {
           print render($content['field_media']);

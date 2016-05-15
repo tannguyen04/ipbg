@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a node.
@@ -80,36 +79,42 @@
  * @ingroup themeable
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="content row"<?php print $content_attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <div class="media col-xs-12 col-sm-6">
-      <?php print render($content['product:field_images']); ?>
-    </div>
-    <?php print render($title_suffix); ?>
-    <div class="info col-xs-12 col-sm-6">
-      <h2 class="product-title" <?php print $title_attributes; ?>><?php print $title; ?></h2>
-      <?php print render($content['product:title']); ?>
-      <?php print render($content['product:sku']); ?>
-      <div class="review-summary">
-        <?php print render($content['field_rating']); ?>
-        <span class="sperate"></span>
-        <div class="review-count">
-          <a href="#review">
-            <?php print $rating_count; ?>
-          </a>
+<div id="node-<?php print $node->nid; ?>" class="node-mobile-full <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div class="content"<?php print $content_attributes; ?>>
+    <div class="container">
+      <div class="row">
+        <?php print render($title_prefix); ?>
+        <div class="media col-xs-12 col-sm-6">
+          <?php print render($content['product:field_images']); ?>
         </div>
-        <span class="sperate"></span>
-        <div class="review-product-info">
-          <?php print l(t('Product infomation'), '', array('external' => TRUE, 'fragment' => 'overview')) ?>
+        <?php print render($title_suffix); ?>
+        <div class="info col-xs-12 col-sm-6">
+          <h2 class="product-title" <?php print $title_attributes; ?>><?php print $title; ?></h2>
+          <?php print render($content['product:sku']); ?>
+          <div class="review-summary">
+            <?php print render($content['field_rating']); ?>
+            <span class="sperate"> | </span>
+            <div class="review-product-info">
+              <?php print l(t('Product infomation'), '', array('external' => TRUE, 'fragment' => 'overview')) ?>
+            </div>
+          </div>
+          <?php print render($content['body']); ?>
+          <?php print render($content['sharethis']); ?>
+          <?php print render($content['product:commerce_price']); ?>
         </div>
       </div>
-      <?php print render($content['body']); ?>
-      <?php print render($content['product:commerce_price']); ?>
     </div>
-    <div class="more-info-selectable">
-      <?php print render($content['field_products_ref']); ?>
-      <?php print render($content['product:commerce_stock']); ?>
+  </div>
+  <div class="content-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-6">
+        <div class="more-info-selectable">
+          <?php print render($content['field_products_ref']); ?>
+          <?php print render($content['product:commerce_stock']); ?>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

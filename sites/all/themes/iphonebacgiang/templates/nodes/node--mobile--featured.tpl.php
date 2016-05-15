@@ -93,14 +93,14 @@
       <div class="box-product-featured--rating-colours-image">
         <div class="box-product--rating-colours box-product-featured--rating-colours">
             <?php print render($content['field_rating']); ?>
-            <?php print render($content['product:field_color_ref']); ?>
+            <?php print render($content['color_product']); ?>
             <div class="box-product-short-description">
-              this is text test, please. please please !!
+              <?php print render($content['body']) ?>
             </div>
         </div>
 
         <div class="box-product-featured--image">
-            <?php print render($content['product:field_images'][0]); ?>
+            <?php print render($content['field_image']); ?>
         </div>
       </div>
     </div>

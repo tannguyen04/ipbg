@@ -15,16 +15,14 @@ function iphonebacgiang_preprocess_field(&$vars) {
  * Field Collection-specific implementation of template_preprocess_entity().
  */
 function iphonebacgiang_preprocess_node(&$vars) {
-  $viewmode = $vars['elements']['#view_mode'];
   $node = $vars['elements']['#node'];
-  array_splice( $vars['theme_hook_suggestions'], 1, 0, array('node__' . $node->type. '__'. $viewmode));
   if (isset($node->field_rating)) {
     $rating = field_get_items('node', $node, 'field_rating');
     if (!empty($rating)) {
       $vars['rating_count'] = format_plural($rating[0]['count'], '1 Review', '@count Reviews');;
     }
   }
- if ($node->nid == '315') {
+ if (isset($node->field_os)) {
    $wrapper = entity_metadata_wrapper('node', $node);
    $vars['content']['os'] = array();
    foreach ($wrapper->field_os->getIterator() as $delta => $term_wrapper) {
@@ -50,6 +48,35 @@ function iphonebacgiang_preprocess_node(&$vars) {
      );
    }
  }
+
+ if (isset($node->field_products_ref)) {
+   $wrapper = entity_metadata_wrapper('node', $node);
+   $color_product = array();
+   foreach ($wrapper->field_products_ref->value() as $key => $product) {
+     $wrapper = entity_metadata_wrapper('commerce_product', $product->product_id);
+     $color = $wrapper->field_color_ref->value();
+     if (!empty($color)) {
+       $color_product[] = render(taxonomy_term_view($color, 'add_to_cart_form'));
+     }
+   }
+   if (!empty($color_product)) {
+     $vars['content']['color_product'] = array(
+       '#theme' => 'item_list',
+       '#items' => $color_product,
+       '#attributes' => array(
+         'class' => array('product-colors', 'clearfix')
+       ),
+     );
+   }
+ }
+
+
+}
+/*
+ * Implements theme_menu_tree()
+ */
+function iphonebacgiang_menu_tree(&$variables) {
+  return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
 }
 
 /**
@@ -226,40 +253,12 @@ function iphonebacgiang_breadcrumb($variables) {
     ));
   }
 
-
-  // Use the Path Breadcrumbs theme function if it should be used instead.
-  // if (_bootstrap_use_path_breadcrumbs()) {
-  //   return path_breadcrumbs_breadcrumb($variables);
-  // }
-  // $output = '';
-  // $breadcrumb = $variables['breadcrumb'];
-  // // Determine if we are to display the breadcrumb.
-  // $bootstrap_breadcrumb = bootstrap_setting('breadcrumb');
-  // if (($bootstrap_breadcrumb == 1 || ($bootstrap_breadcrumb == 2 && arg(0) == 'admin')) && !empty($breadcrumb)) {
-  //   // foreach ($breadcrumb as $key => $value) {
-  //   //   if (isset($value['data'])) {
-  //   //     $breadcrumb[$key]['data'] = l($value['data'], '#', array('external' => TRUE));
-  //   //   }
-  //   // }
-  //   // dpm($breadcrumb);
-  //   dpm($breadcrumb);
-  //   if (isset($breadcrumb[1])) {
-  //     $breadcrumb[1]['class'] = array('has-shadow');
-  //   }
-  //   $output = theme('item_list', array(
-  //     'attributes' => array(
-  //       'class' => array('breadcrumb'),
-  //     ),
-  //     'items' => $breadcrumb,
-  //     'type' => 'ol',
-  //   ));
-  // }
   return $output;
 }
 
 /**
  * Implements hook_preprocess_HOOK().
  */
-function iphonebacgiang_preprocess_comment(&$vars) {
-  //dpm($vars);
+function iphonebacgiang_preprocess_image(&$variables) {
+  $variables['attributes']['class'][] = 'img-responsive';
 }

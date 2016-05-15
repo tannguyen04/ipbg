@@ -87,12 +87,14 @@
     <?php
       print render($content['field_slide_image']);
     ?>
-    <div class="slide-info">
-      <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-      <?php
+    <?php if(!empty($content['field_body_box'])): ?>
+      <div class="slide-info">
+        <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
+        <?php
         print '<div class="slide-info--description">' . render($content['field_body_box']) . '</div>';
         print '<div class="slide-info--link">' . render($content['field_link']) . '</div>';
-      ?>
-    </div>
+        ?>
+      </div>
+    <?php endif; ?>
   </div>
 </div>

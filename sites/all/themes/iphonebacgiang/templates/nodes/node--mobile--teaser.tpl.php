@@ -90,16 +90,16 @@
       ?>
       <?php print render($title_prefix); ?>
       <div class="box-product-teaser--image">
-          <?php print render($content['product:field_images'][0]); ?>
+          <?php print render($content['field_image'][0]); ?>
       </div>
       <div class="box-product--rating-colours box-product-teaser--rating-colours">
           <?php print render($content['field_rating']); ?>
-          <?php print render($content['product:field_color_ref']); ?>
+          <?php print render($content['color_product']); ?>
       </div>
       <?php print render($title_suffix); ?>
       <h2 class="box-product-teaser--title node-title title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
       <div class="box-product-short-description">
-        this is text test, please. please please !!
+        <?php print render($content['body']) ?>
       </div>
     </div>
     <div class="box-content-bottom">

@@ -19,13 +19,13 @@
         </div>
       <?php endif; ?>
 
-      <?php if(!empty($content['navigation_bottom'])): ?>
+      <?php //if(!empty($content['navigation_bottom'])): ?>
         <div id="navigation-bottom">
           <div class="container">
             <?php print $content['navigation_bottom']; ?>
           </div>
         </div>
-      <?php endif; ?>
+      <?php //endif; ?>
   </div>
 
   <div id="page-title">
