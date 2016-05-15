@@ -64,6 +64,9 @@ function product_types_strongarm() {
       'node_anchor_link' => array(
         'custom_settings' => TRUE,
       ),
+      'node_featured' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -84,7 +87,7 @@ function product_types_strongarm() {
             'visible' => TRUE,
           ),
           'node_full' => array(
-            'weight' => '-10',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'node_anchor_link' => array(
@@ -95,6 +98,10 @@ function product_types_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'node_featured' => array(
+            'weight' => '-10',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -102,7 +109,7 @@ function product_types_strongarm() {
             'visible' => TRUE,
           ),
           'node_full' => array(
-            'weight' => '-5',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'node_anchor_link' => array(
@@ -111,6 +118,10 @@ function product_types_strongarm() {
           ),
           'node_teaser' => array(
             'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'node_featured' => array(
+            'weight' => '-5',
             'visible' => TRUE,
           ),
         ),
@@ -129,6 +140,10 @@ function product_types_strongarm() {
           ),
           'node_teaser' => array(
             'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'node_featured' => array(
+            'weight' => '5',
             'visible' => TRUE,
           ),
         ),

@@ -4,40 +4,40 @@
  * Implements hook_update_N().
  * Enable modules, disable module
  */
-function ipbg_update_update_7004(&$sandbox) {
-  $modules = array('diff', 'panels', 'panels_everywhere', 'strongarm', 'owlcarousel_ui', 'owlcarousel_views', 'owlcarousel_fields', 'commerce_features', 'product_types', 'media_youtube', 'product_types');
-  module_enable($modules);
-  $modules = array('context', 'ds_ui', 'ds_format');
-  module_disable($modules);
-  features_revert_module('content_type');
-  features_revert_module('ipbg_views');
-  features_revert_module('ipbg_pages');
-}
-
-function ipbg_update_schema_alter(&$schema) {
-  // Add field to existing schema.
-  $schema['panels_display']['fields']['subtitle'] = array(
-    'type' => 'varchar',
-    'length' => 255,
-    'not null' => TRUE,
-    'default' => '',
-    'description' => 'Add subtitle',
-  );
-  return $schema;
-}
-
-/**
- * Add subtitle to panels display
- */
-function ipbg_update_update_7008(&$sandbox) {
-  // Load the schema.
-  $schema = drupal_get_schema('panels_display');
-  $table = 'panels_display';
-  $field = 'subtitle';
-  // Due to a previous failure, the column may already exist:
-  if (!db_field_exists($table, $field)) {
-    $spec = $schema['fields'][$field];
-    db_add_field($table, $field, $spec);
-    drupal_set_message('Added subtitle');
-  }
-}
+//function ipbg_update_update_7004(&$sandbox) {
+//  $modules = array('diff', 'panels', 'panels_everywhere', 'strongarm', 'owlcarousel_ui', 'owlcarousel_views', 'owlcarousel_fields', 'commerce_features', 'product_types', 'media_youtube', 'product_types');
+//  module_enable($modules);
+//  $modules = array('context', 'ds_ui', 'ds_format');
+//  module_disable($modules);
+//  features_revert_module('content_type');
+//  features_revert_module('ipbg_views');
+//  features_revert_module('ipbg_pages');
+//}
+//
+//function ipbg_update_schema_alter(&$schema) {
+//  // Add field to existing schema.
+//  $schema['panels_display']['fields']['subtitle'] = array(
+//    'type' => 'varchar',
+//    'length' => 255,
+//    'not null' => TRUE,
+//    'default' => '',
+//    'description' => 'Add subtitle',
+//  );
+//  return $schema;
+//}
+//
+///**
+// * Add subtitle to panels display
+// */
+//function ipbg_update_update_7008(&$sandbox) {
+//  // Load the schema.
+//  $schema = drupal_get_schema('panels_display');
+//  $table = 'panels_display';
+//  $field = 'subtitle';
+//  // Due to a previous failure, the column may already exist:
+//  if (!db_field_exists($table, $field)) {
+//    $spec = $schema['fields'][$field];
+//    db_add_field($table, $field, $spec);
+//    drupal_set_message('Added subtitle');
+//  }
+//}

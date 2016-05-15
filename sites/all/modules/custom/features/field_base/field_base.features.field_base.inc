@@ -78,6 +78,31 @@ function field_base_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_badge'
+  $field_bases['field_badge'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_badge',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'new_arrival' => 'New arrival',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_body_box'
   $field_bases['field_body_box'] = array(
     'active' => 1,
@@ -128,32 +153,31 @@ function field_base_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_box_banner_style'
-  $field_bases['field_box_banner_style'] = array(
+  // Exported field_base: 'field_collumns_navigation'
+  $field_bases['field_collumns_navigation'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_box_banner_style',
-    'foreign keys' => array(),
+    'field_name' => 'field_collumns_navigation',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'style_1' => 'Style 1',
-        'style_2' => 'Style 2',
-        'style_3' => 'Style 3',
-        'style_4' => 'Style 4',
-      ),
-      'allowed_values_function' => '',
-    ),
+    'module' => 'text',
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_color'
@@ -565,6 +589,49 @@ function field_base_field_default_field_bases() {
         ),
       ),
       'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_os'
+  $field_bases['field_os'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os',
+    'foreign keys' => array(
+      'taxonomy_term_data' => array(
+        'columns' => array(
+          'target_id' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'os' => 'os',
+        ),
+      ),
+      'target_type' => 'taxonomy_term',
     ),
     'translatable' => 0,
     'type' => 'entityreference',

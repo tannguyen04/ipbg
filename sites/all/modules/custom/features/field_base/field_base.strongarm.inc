@@ -20,6 +20,10 @@ function field_base_strongarm() {
         'label' => 'Anchor Link',
         'custom settings' => 1,
       ),
+      'featured' => array(
+        'label' => 'Featured',
+        'custom settings' => 1,
+      ),
     ),
   );
   $export['entity_view_modes'] = $strongarm;

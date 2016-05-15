@@ -14,7 +14,7 @@ function ipgb_pages_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'admin_theme';
-  $strongarm->value = 'adminimal';
+  $strongarm->value = 'seven';
   $export['admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -182,7 +182,7 @@ function ipgb_pages_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'owlcarousel_navigation_owlcarousel_settings_gallery-product';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['owlcarousel_navigation_owlcarousel_settings_gallery-product'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -325,7 +325,7 @@ function ipgb_pages_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'panels_everywhere_site_template_enabled';
-  $strongarm->value = 1;
+  $strongarm->value = TRUE;
   $export['panels_everywhere_site_template_enabled'] = $strongarm;
 
   $strongarm = new stdClass();

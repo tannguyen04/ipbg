@@ -33,6 +33,14 @@ function field_base_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'os' => array(
+      'name' => 'OS',
+      'machine_name' => 'os',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'series' => array(
       'name' => 'Series',
       'machine_name' => 'series',

@@ -69,7 +69,7 @@ function product_types_field_default_field_instances() {
           'calculation' => 'calculated_sell_price',
         ),
         'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -128,10 +128,39 @@ function product_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'commerce_sdf',
+        'settings' => array(
+          'display' => array(
+            0 => array(
+              'seuil' => 0,
+              'message' => 'Out of stock',
+              'classname' => 'out-of-stock',
+            ),
+            1 => array(
+              'classname' => '',
+              'message' => 'In stock',
+              'seuil' => 99999999,
+            ),
+            2 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            3 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            4 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+          ),
+        ),
+        'type' => 'commerce_sdf_formatter',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'commerce_product',
@@ -176,10 +205,14 @@ function product_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'product_list',
+        ),
+        'type' => 'image',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'commerce_product',
@@ -276,6 +309,15 @@ function product_types_field_default_field_instances() {
         'type' => 'commerce_price_formatted_amount',
         'weight' => 0,
       ),
+      'node_featured' => array(
+        'label' => 'above',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
       'node_teaser' => array(
         'label' => 'hidden',
         'module' => 'commerce_price',
@@ -283,7 +325,7 @@ function product_types_field_default_field_instances() {
           'calculation' => 'calculated_sell_price',
         ),
         'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -341,11 +383,75 @@ function product_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'node_featured' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_sdf',
+        'settings' => array(
+          'display' => array(
+            0 => array(
+              'seuil' => 0,
+              'message' => 'Out of stock',
+              'classname' => 'out-of-stock',
+            ),
+            1 => array(
+              'classname' => '',
+              'message' => 'In stock',
+              'seuil' => 99999999,
+            ),
+            2 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            3 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            4 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+          ),
+        ),
+        'type' => 'commerce_sdf_formatter',
+        'weight' => 1,
+      ),
       'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'commerce_sdf',
+        'settings' => array(
+          'display' => array(
+            0 => array(
+              'seuil' => 0,
+              'message' => 'Out of stock',
+              'classname' => 'out-of-stock',
+            ),
+            1 => array(
+              'classname' => '',
+              'message' => 'In stock',
+              'seuil' => 99999999,
+            ),
+            2 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            3 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            4 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+          ),
+        ),
+        'type' => 'commerce_sdf_formatter',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'commerce_product',
@@ -389,11 +495,25 @@ function product_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'node_featured' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
       'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'product_list',
+        ),
+        'type' => 'image',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'commerce_product',
@@ -499,8 +619,8 @@ function product_types_field_default_field_instances() {
         'type' => 'commerce_price_formatted_amount',
         'weight' => 0,
       ),
-      'node_full' => array(
-        'label' => 'hidden',
+      'node_featured' => array(
+        'label' => 'above',
         'module' => 'commerce_price',
         'settings' => array(
           'calculation' => 'calculated_sell_price',
@@ -508,8 +628,17 @@ function product_types_field_default_field_instances() {
         'type' => 'commerce_price_formatted_amount',
         'weight' => 0,
       ),
+      'node_full' => array(
+        'label' => 'above',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 2,
+      ),
       'node_teaser' => array(
-        'label' => 'hidden',
+        'label' => 'above',
         'module' => 'commerce_price',
         'settings' => array(
           'calculation' => 'calculated_sell_price',
@@ -585,17 +714,75 @@ function product_types_field_default_field_instances() {
         'type' => 'number_decimal',
         'weight' => 1,
       ),
-      'node_full' => array(
-        'label' => 'inline',
-        'module' => 'number',
+      'node_featured' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_sdf',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+          'display' => array(
+            0 => array(
+              'seuil' => 0,
+              'message' => 'Out of stock',
+              'classname' => 'out-of-stock',
+            ),
+            1 => array(
+              'classname' => '',
+              'message' => 'In stock',
+              'seuil' => 99999999,
+            ),
+            2 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            3 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            4 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+          ),
         ),
-        'type' => 'number_decimal',
+        'type' => 'commerce_sdf_formatter',
         'weight' => 1,
+      ),
+      'node_full' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_sdf',
+        'settings' => array(
+          'display' => array(
+            0 => array(
+              'seuil' => 0,
+              'message' => 'Hết hàng',
+              'classname' => 'out-of-stock',
+            ),
+            1 => array(
+              'classname' => '',
+              'message' => 'Còn hàng',
+              'seuil' => 99999999,
+            ),
+            2 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            3 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+            4 => array(
+              'classname' => '',
+              'message' => '',
+              'seuil' => '',
+            ),
+          ),
+        ),
+        'type' => 'commerce_sdf_formatter',
+        'weight' => 3,
       ),
       'node_teaser' => array(
         'label' => 'hidden',
@@ -604,10 +791,12 @@ function product_types_field_default_field_instances() {
           'display' => array(
             0 => array(
               'seuil' => 0,
-              'message' => 'Out of stock',
+              'message' => 'Hết hàng',
+              'classname' => 'out-of-stock',
             ),
             1 => array(
-              'message' => 'In stock',
+              'classname' => '',
+              'message' => 'Còn hàng',
               'seuil' => 99999999,
             ),
             2 => array(
@@ -655,7 +844,7 @@ function product_types_field_default_field_instances() {
     'bundle' => 'mobile',
     'commerce_cart_settings' => array(
       'attribute_field' => 1,
-      'attribute_widget' => 'select',
+      'attribute_widget' => 'commerce_fancy_attributes',
       'attribute_widget_title' => 'Color',
     ),
     'default_value' => NULL,
@@ -682,11 +871,25 @@ function product_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 5,
       ),
+      'node_featured' => array(
+        'label' => 'hidden',
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_reference_view_mode' => 'add_to_cart_form',
+          'use_content_language' => 1,
+        ),
+        'type' => 'ds_taxonomy_view_mode',
+        'weight' => 5,
+      ),
       'node_full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_reference_view_mode' => 'add_to_cart_form',
+          'use_content_language' => 1,
+        ),
+        'type' => 'ds_taxonomy_view_mode',
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'hidden',
@@ -751,6 +954,16 @@ function product_types_field_default_field_instances() {
         'type' => 'image_delta',
         'weight' => 3,
       ),
+      'node_featured' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 3,
+      ),
       'node_full' => array(
         'label' => 'hidden',
         'module' => 'ipbg_product',
@@ -760,44 +973,16 @@ function product_types_field_default_field_instances() {
           'trim_length' => '',
         ),
         'type' => 'owlcarousel_formatter_product',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'node_teaser' => array(
-        'label' => 'above',
-        'module' => 'field_slideshow',
+        'label' => 'hidden',
+        'module' => 'image',
         'settings' => array(
-          'slideshow_caption' => '',
-          'slideshow_caption_link' => '',
-          'slideshow_carousel_circular' => 0,
-          'slideshow_carousel_follow' => 0,
-          'slideshow_carousel_image_style' => '',
-          'slideshow_carousel_scroll' => 1,
-          'slideshow_carousel_skin' => '',
-          'slideshow_carousel_speed' => 500,
-          'slideshow_carousel_vertical' => 0,
-          'slideshow_carousel_visible' => 3,
-          'slideshow_colorbox_image_style' => '',
-          'slideshow_colorbox_slideshow' => '',
-          'slideshow_colorbox_slideshow_speed' => 4000,
-          'slideshow_colorbox_speed' => 350,
-          'slideshow_colorbox_transition' => 'elastic',
-          'slideshow_controls' => 0,
-          'slideshow_controls_pause' => 0,
-          'slideshow_controls_position' => 'after',
-          'slideshow_field_collection_image' => '',
-          'slideshow_fx' => 'fade',
-          'slideshow_image_style' => '',
-          'slideshow_link' => '',
-          'slideshow_order' => '',
-          'slideshow_pager' => '',
-          'slideshow_pager_image_style' => '',
-          'slideshow_pager_position' => 'after',
-          'slideshow_pause' => 0,
-          'slideshow_speed' => 1000,
-          'slideshow_start_on_hover' => 0,
-          'slideshow_timeout' => 4000,
+          'image_link' => 'content',
+          'image_style' => 'product_list',
         ),
-        'type' => 'slideshow',
+        'type' => 'image',
         'weight' => 3,
       ),
     ),
@@ -875,11 +1060,18 @@ function product_types_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 4,
       ),
+      'node_featured' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
       'node_full' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'node_teaser' => array(
         'label' => 'hidden',
