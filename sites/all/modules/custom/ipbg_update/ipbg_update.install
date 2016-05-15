@@ -12,6 +12,8 @@ function ipbg_update_update_7004(&$sandbox) {
   features_revert_module('content_type');
   features_revert_module('ipbg_views');
   features_revert_module('ipbg_pages');
+  variable_set('theme_default','iphonebacgiang');
+  variable_set('admin_theme','adminimal');
 }
 
 function ipbg_update_schema_alter(&$schema) {
