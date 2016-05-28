@@ -17,6 +17,30 @@ function ipbg_views_views_api($module = NULL, $api = NULL) {
 function ipbg_views_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
+  // Exported nodequeues: accessories_slideshow
+  $nodequeues['accessories_slideshow'] = array(
+    'name' => 'accessories_slideshow',
+    'title' => 'Accessories slideshow',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'slide',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: app_slideshow
   $nodequeues['app_slideshow'] = array(
     'name' => 'app_slideshow',
@@ -158,6 +182,30 @@ function ipbg_views_fe_nodequeue_export_fields() {
     'types' => array(
       0 => 'accessory',
       1 => 'mobile',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: services
+  $nodequeues['services'] = array(
+    'name' => 'services',
+    'title' => 'Services',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'insert_at_front' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'services',
     ),
     'roles' => array(),
     'count' => 0,
