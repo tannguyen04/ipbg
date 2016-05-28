@@ -1024,3 +1024,12 @@ ul.facetapi-facetapi-checkbox-links {
     display: inline-block;
   }
 }
+.techical-full ul {
+  @extend .list-group;
+  li {
+    @extend .list-group-item;
+    &.specificationheader {
+      @extend .active;
+    }
+  }
+}

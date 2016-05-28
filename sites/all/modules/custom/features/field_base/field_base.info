@@ -70,4 +70,4 @@ features[variable][] = entity_view_modes
 features[variable][] = pathauto_taxonomy_term_accessories_pattern
 features[variable][] = pathauto_taxonomy_term_manufacturer_pattern
 features[variable][] = pathauto_taxonomy_term_series_pattern
-mtime = 1464101353
+mtime = 1464426402

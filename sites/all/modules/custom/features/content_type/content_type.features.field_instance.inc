@@ -2241,7 +2241,135 @@ function content_type_field_default_field_instances() {
   // Exported field_instance: 'node-mobile-field_body_box'
   $field_instances['node-mobile-field_body_box'] = array(
     'bundle' => 'mobile',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '<div class="techical-full">
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<ul class="detail-main-specification">
+	<li class="specificationheader">Thông số cơ bản</li>
+	<li><label>Kiểu điện thoại :</label> <span>Thanh (thẳng) + Cảm ứng</span></li>
+	<li><label>Màn hình :</label> <span>5.5 inch (720 x 1280 pixels)</span></li>
+	<li><label>Camera :</label> <span>Chính: 13.0 MP, Phụ: 5.0 MP</span></li>
+	<li><label>Bộ nhớ trong :</label> <span>16 GB</span></li>
+	<li><label>Hệ điều hành :</label> <span>Android 6.0 (Marshmallow)</span></li>
+	<li><label>CPU :</label> <span>Octa-core 1.6 GHz</span></li>
+	<li><label>Kích thước :</label> <span>151.7 x 76 x 7.8 mm</span></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Màn hình</li>
+	<li><label>Loại màn hình :</label> <span>Super AMOLED</span></li>
+	<li><label>Màu màn hình :</label> <span>16 Triệu màu</span></li>
+	<li><label>Chuẩn màn hình :</label> <span>HD</span></li>
+	<li><label>Độ phân giải màn hình :</label> <span>1280 x 720 pixels</span></li>
+	<li><label>Kích thước màn hình :</label> <span>5.5 inch</span></li>
+	<li><label>Công nghệ cảm ứng :</label> <span>Điện dung đa điểm</span></li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Chụp hình &amp; Quay phim</li>
+	<li><label>Camera sau :</label> <span>13.0 MP</span></li>
+	<li><label>Camera trước :</label> <span>5.0 MP</span></li>
+	<li><label>Đèn Flash :</label> <span> Có</span></li>
+	<li><label>Tính năng camera :</label> <span>gắn thẻ địa lý, chạm lấy nét, nhận diện khuôn mặt</span></li>
+	<li><label>Quay Phim :</label> <span>1080p@30fps</span></li>
+	<li><label>Video Call :</label> <span>Có</span></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Cấu hình phần cứng</li>
+	<li><label>Tốc độ CPU :</label> <span>Octa-core 1.6 GHz</span></li>
+	<li><label>Số nhân :</label> <span>8 Nhân</span></li>
+	<li><label>RAM :</label> <span>2 GB</span></li>
+	<li><label>Cảm biến :</label> <span>Gia tốc, tiệm cận</span></li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Bộ nhớ &amp; Lưu trữ</li>
+	<li><label>Danh bạ lưu trữ :</label> <span> Không giới hạn</span></li>
+	<li><label>Bộ nhớ trong :</label> <span>16 GB</span></li>
+	<li><label>Thẻ nhớ ngoài :</label> <span> MicroSD (T-Flash)</span></li>
+	<li><label>Hỗ trợ thẻ nhớ tối đa :</label> <span>128 GB</span></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Thiết kế &amp; Trọng lượng</li>
+	<li><label>Kiểu dáng :</label> <span>Thanh (thẳng) + Cảm ứng </span></li>
+	<li><label>Kích thước :</label> <span>151.7 x 76 x 7.8 mm</span></li>
+	<li><label>Trọng lượng :</label> <span>170g</span></li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Thông tin pin</li>
+	<li><label>Loại pin :</label> <span>Li-ion</span></li>
+	<li><label>Dung lượng pin :</label> <span>3300 mAh</span></li>
+	<li><label>Pin có thể tháo rời :</label> <span>Có</span></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Giải trí &amp; Ứng dụng</li>
+	<li><label>Xem phim :</label> <span>3GP, MP4, AVI, WMV, H.264(MPEG4-AVC), DivX, Xvid</span></li>
+	<li><label>Nghe nhạc :</label> <span>MP3, WAV, WMA9, WMA, AAC++, eAAC+, AC3, FLAC</span></li>
+	<li><label>Ghi âm :</label> <span> Có</span></li>
+	<li><label>FM radio :</label> <span> Có</span></li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Kết nối &amp; Cổng giao tiếp</li>
+	<li><label>Băng tần 2G :</label> <span>GSM 850/ 900/ 1800/ 1900 MHz </span></li>
+	<li><label>Băng tần 3G :</label> <span>HSDPA 850/ 900/ 1900/ 2100 MHz </span></li>
+	<li><label>Băng tần 4G :</label> <span>LTE 1/ 3/ 5/ 7/ 8/ 20/ 40</span></li>
+	<li><label>Hỗ trợ SIM :</label> <span> Micro SIM </span></li>
+	<li><label>Khe cắm sim :</label> <span>2 SIM</span></li>
+	<li><label>Wifi :</label> <span>802.11 b/g/n, Wi-Fi Direct, Wi-Fi hotspot</span></li>
+	<li><label>GPS :</label> <span>A-GPS, GLONASS</span></li>
+	<li><label>Bluetooth :</label> <span>v4.1, A2DP</span></li>
+	<li><label>GPRS/EDGE :</label> <span> Có</span></li>
+	<li><label>NFC :</label> <span>Có</span></li>
+	<li><label>Kết nối USB :</label> <span>MicroUSB</span></li>
+	<li><label>Cổng kết nối khác :</label> <span> Không</span></li>
+	<li><label>Cổng sạc :</label> <span>MicroUSB</span></li>
+	<li><label>Jack (Input &amp; Output) :</label> <span> 3.5 mm</span></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<ul>
+	<li class="specificationheader">Bảo hành</li>
+	<li><label>Thời gian bảo hành :</label> <span>12 tháng</span></li>
+</ul>
+</div>
+</div>
+</div>
+',
+        'format' => 'full_html',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -2308,7 +2436,7 @@ function content_type_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'rows' => 10,
       ),
       'type' => 'text_textarea',
       'weight' => 19,
