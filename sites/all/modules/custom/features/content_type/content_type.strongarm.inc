@@ -41,6 +41,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_box_banner';
+  $strongarm->value = 0;
+  $export['comment_anonymous_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_mobile';
   $strongarm->value = 0;
   $export['comment_anonymous_mobile'] = $strongarm;
@@ -83,6 +90,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_box_banner';
+  $strongarm->value = '1';
+  $export['comment_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_accessory';
   $strongarm->value = 1;
   $export['comment_default_mode_accessory'] = $strongarm;
@@ -100,6 +114,13 @@ function content_type_strongarm() {
   $strongarm->name = 'comment_default_mode_blog_post';
   $strongarm->value = 1;
   $export['comment_default_mode_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_box_banner';
+  $strongarm->value = 1;
+  $export['comment_default_mode_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -153,6 +174,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_box_banner';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_mobile';
   $strongarm->value = '50';
   $export['comment_default_per_page_mobile'] = $strongarm;
@@ -198,6 +226,13 @@ function content_type_strongarm() {
   $strongarm->name = 'comment_form_location_blog_post';
   $strongarm->value = 1;
   $export['comment_form_location_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_box_banner';
+  $strongarm->value = 1;
+  $export['comment_form_location_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -265,6 +300,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_box_banner';
+  $strongarm->value = '1';
+  $export['comment_preview_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_mobile';
   $strongarm->value = '0';
   $export['comment_preview_mobile'] = $strongarm;
@@ -324,6 +366,13 @@ function content_type_strongarm() {
   $strongarm->name = 'comment_subject_field_blog_post';
   $strongarm->value = 0;
   $export['comment_subject_field_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_box_banner';
+  $strongarm->value = 1;
+  $export['comment_subject_field_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -646,6 +695,66 @@ function content_type_strongarm() {
     ),
   );
   $export['field_bundle_settings_node__blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__box_banner';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'anchor_link' => array(
+        'custom_settings' => FALSE,
+      ),
+      'featured' => array(
+        'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(
+        'metatags' => array(
+          'weight' => '4',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '1',
+        ),
+        'redirect' => array(
+          'weight' => '3',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '2',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1094,6 +1203,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_box_banner';
+  $strongarm->value = '0';
+  $export['language_content_type_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_mobile';
   $strongarm->value = '0';
   $export['language_content_type_mobile'] = $strongarm;
@@ -1145,6 +1261,15 @@ function content_type_strongarm() {
     0 => 'main-menu',
   );
   $export['menu_options_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_box_banner';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1206,6 +1331,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_box_banner';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_mobile';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_mobile'] = $strongarm;
@@ -1258,6 +1390,15 @@ function content_type_strongarm() {
     1 => 'promote',
   );
   $export['node_options_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_box_banner';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1319,6 +1460,13 @@ function content_type_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_box_banner';
+  $strongarm->value = '1';
+  $export['node_preview_box_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_mobile';
   $strongarm->value = '1';
   $export['node_preview_mobile'] = $strongarm;
@@ -1364,6 +1512,13 @@ function content_type_strongarm() {
   $strongarm->name = 'node_submitted_blog_post';
   $strongarm->value = 1;
   $export['node_submitted_blog_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_box_banner';
+  $strongarm->value = 0;
+  $export['node_submitted_box_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

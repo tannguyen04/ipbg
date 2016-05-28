@@ -45,6 +45,14 @@ function content_type_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'box_banner' => array(
+      'name' => t('Box banner'),
+      'base' => 'node_content',
+      'description' => t('Box banner'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'mobile' => array(
       'name' => t('Điện thoại'),
       'base' => 'node_content',

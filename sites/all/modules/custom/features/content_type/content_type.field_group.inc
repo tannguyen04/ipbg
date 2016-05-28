@@ -35,7 +35,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_avatar|node|app_mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -62,7 +62,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_avatar|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -89,7 +89,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_features_full|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -118,7 +118,7 @@ function content_type_field_group_info() {
       'formatter' => 'closed',
     ),
   );
-  $field_groups['group_features_overview|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -145,7 +145,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_gallery|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -172,7 +172,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_images|node|app_mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -199,7 +199,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_image|node|app_mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -226,7 +226,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_media|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -253,7 +253,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_related|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -280,7 +280,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_technical_full|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -307,7 +307,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_technical_overview|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -337,7 +337,7 @@ function content_type_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_technical|node|mobile|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
