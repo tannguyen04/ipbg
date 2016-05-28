@@ -310,7 +310,7 @@ ul.product-colors {
 }
 .box-product {
   background-color: #efefef;
-  font-family: Frutiger-45light;
+  //font-family: Frutiger-45light;
   a {
     color: #3d9ece;
   }
@@ -337,8 +337,7 @@ ul.product-colors {
       padding-left: 30px;
       display: table;
       padding: 5px 15px 0 30px;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-size: $font-size-small;
     }
     .box-product-badge {
@@ -365,6 +364,10 @@ ul.product-colors {
     .box-content-bottom {
       position: absolute;
       bottom: 30px;
+    }
+    .node-title {
+      text-transform: capitalize;
+      font-family: Frutiger-45light;
     }
   }
   .box-footer {
@@ -676,6 +679,11 @@ article.box-product-teaser {
     padding: 40px 0;
     color: #fff;
   }
+  .commerce-product-field-field-images {
+    img {
+      margin: 0 auto;
+    }
+  }
 }
 
 .pane-anchor-link-product-display {
@@ -764,13 +772,13 @@ article.box-product-teaser {
       float: right;
     }
     .show-slide {
-      color: #3d9ece;
+      color: #fff;
       background: url("../images/icon-camera.png") no-repeat;
       padding-left: 40px;
       padding: 7px 0 10px 40px;
       display: block;
       font-size: 0.8em;
-      margin: 30px 0 0 150px;
+      margin: 30px 0 0 220px;
     }
   }
 }
