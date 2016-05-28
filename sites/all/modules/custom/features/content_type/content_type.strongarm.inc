@@ -922,6 +922,10 @@ function content_type_strongarm() {
       'display' => array(
         'sharethis' => array(
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),

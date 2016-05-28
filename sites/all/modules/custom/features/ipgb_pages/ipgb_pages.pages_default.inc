@@ -13,11 +13,100 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__accessory';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -26;
+  $handler->conf = array(
+    'title' => 'Accessory',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'hide-page-title page-full',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'accessory',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'accessory' => 'accessory',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top_content' => NULL,
+      'left_content' => NULL,
+      'middle_content' => NULL,
+      'bottom_content' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7a17d8a9-b733-4b52-aa16-988b450f0f4d';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 0,
+      'no_extras' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $display->content['new-270e64f2-89a6-4fa0-9d2d-8611551afdc1'] = $pane;
+    $display->panels['middle'][0] = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+  $handler->conf['display'] = $display;
+  $export['node_view__accessory'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view__app';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'App',
     'no_blocks' => 0,
@@ -106,7 +195,7 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Blog',
     'no_blocks' => 0,
@@ -285,7 +374,7 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Mobile',
     'no_blocks' => 0,
@@ -609,13 +698,13 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view__panel_context_938b17c4-6dd6-4377-8309-877e88805f43';
+  $handler->name = 'node_view__panel_context_2c9737d5-e9ec-49c6-b944-251c741526ec';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -30;
   $handler->conf = array(
-    'title' => 'Default',
+    'title' => 'Service',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -624,10 +713,30 @@ function ipgb_pages_default_page_manager_handlers() {
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
-    'name' => '',
+    'name' => 'service',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'service' => 'service',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+    'panels_breadcrumbs_state' => 0,
+    'panels_breadcrumbs_titles' => 'News',
+    'panels_breadcrumbs_paths' => 'news
+',
+    'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'lion';
+  $display->layout = 'spectre';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -636,6 +745,8 @@ function ipgb_pages_default_page_manager_handlers() {
       'left_content' => NULL,
       'middle_content' => NULL,
       'bottom_content' => NULL,
+      'middle' => NULL,
+      'sidebar_content' => NULL,
     ),
   );
   $display->cache = array();
@@ -653,12 +764,227 @@ function ipgb_pages_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'links' => 1,
-      'no_extras' => 1,
-      'override_title' => 0,
+      'no_extras' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
-      'leave_node_title' => 0,
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $display->content['new-270e64f2-89a6-4fa0-9d2d-8611551afdc1'] = $pane;
+    $display->panels['middle_content'][0] = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $pane = new stdClass();
+    $pane->pid = 'new-1b87dcaa-e5bb-47b5-8527-34bb7e0140c5';
+    $pane->panel = 'sidebar_content';
+    $pane->type = 'sharethis';
+    $pane->subtype = 'sharethis';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path' => 'global',
+      'path-external' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Share',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '1b87dcaa-e5bb-47b5-8527-34bb7e0140c5';
+    $display->content['new-1b87dcaa-e5bb-47b5-8527-34bb7e0140c5'] = $pane;
+    $display->panels['sidebar_content'][0] = 'new-1b87dcaa-e5bb-47b5-8527-34bb7e0140c5';
+    $pane = new stdClass();
+    $pane->pid = 'new-e9dff17d-9387-45ff-ab1f-3bd79cc73292';
+    $pane->panel = 'sidebar_content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'services-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Dịch vụ khác',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e9dff17d-9387-45ff-ab1f-3bd79cc73292';
+    $display->content['new-e9dff17d-9387-45ff-ab1f-3bd79cc73292'] = $pane;
+    $display->panels['sidebar_content'][1] = 'new-e9dff17d-9387-45ff-ab1f-3bd79cc73292';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_2c9737d5-e9ec-49c6-b944-251c741526ec'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_938b17c4-6dd6-4377-8309-877e88805f43';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -24;
+  $handler->conf = array(
+    'title' => 'Default',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top_content' => NULL,
+      'left_content' => NULL,
+      'middle_content' => NULL,
+      'bottom_content' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7a17d8a9-b733-4b52-aa16-988b450f0f4d';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 0,
+      'no_extras' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $display->content['new-270e64f2-89a6-4fa0-9d2d-8611551afdc1'] = $pane;
+    $display->panels['middle'][0] = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_938b17c4-6dd6-4377-8309-877e88805f43'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__service';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -25;
+  $handler->conf = array(
+    'title' => 'Service',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'service',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'services' => 'services',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'spectre';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top_content' => NULL,
+      'left_content' => NULL,
+      'middle_content' => NULL,
+      'bottom_content' => NULL,
+      'middle' => NULL,
+      'sidebar_content' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7a17d8a9-b733-4b52-aa16-988b450f0f4d';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $pane->panel = 'middle_content';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 0,
+      'no_extras' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',
       'override_title_heading' => 'h2',
@@ -674,10 +1000,71 @@ function ipgb_pages_default_page_manager_handlers() {
     $pane->uuid = '270e64f2-89a6-4fa0-9d2d-8611551afdc1';
     $display->content['new-270e64f2-89a6-4fa0-9d2d-8611551afdc1'] = $pane;
     $display->panels['middle_content'][0] = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
+    $pane = new stdClass();
+    $pane->pid = 'new-f5d7cfa5-d727-44f1-b117-b2fefef5a95c';
+    $pane->panel = 'sidebar_content';
+    $pane->type = 'views';
+    $pane->subtype = 'themetastic_services';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '10',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_1',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f5d7cfa5-d727-44f1-b117-b2fefef5a95c';
+    $display->content['new-f5d7cfa5-d727-44f1-b117-b2fefef5a95c'] = $pane;
+    $display->panels['sidebar_content'][0] = 'new-f5d7cfa5-d727-44f1-b117-b2fefef5a95c';
+    $pane = new stdClass();
+    $pane->pid = 'new-b1fe3557-826e-49a7-a90b-1f2c96be6913';
+    $pane->panel = 'sidebar_content';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-menu-services';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'b1fe3557-826e-49a7-a90b-1f2c96be6913';
+    $display->content['new-b1fe3557-826e-49a7-a90b-1f2c96be6913'] = $pane;
+    $display->panels['sidebar_content'][1] = 'new-b1fe3557-826e-49a7-a90b-1f2c96be6913';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-270e64f2-89a6-4fa0-9d2d-8611551afdc1';
   $handler->conf['display'] = $display;
-  $export['node_view__panel_context_938b17c4-6dd6-4377-8309-877e88805f43'] = $handler;
+  $export['node_view__service'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
@@ -1688,6 +2075,150 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $export['site_template__site-wide'] = $handler;
 
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'term_view__panel_context_0ce8c5bb-0bf8-4a36-a393-b16ebce32d3f';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'Default',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'f7b84b7d-fc43-4f64-946a-2d620cbdd88f';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-30bb90a6-8a96-40eb-9faf-d31fcde7c7d3';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'taxonomy_term_bg-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '30bb90a6-8a96-40eb-9faf-d31fcde7c7d3';
+    $display->content['new-30bb90a6-8a96-40eb-9faf-d31fcde7c7d3'] = $pane;
+    $display->panels['middle'][0] = 'new-30bb90a6-8a96-40eb-9faf-d31fcde7c7d3';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-30bb90a6-8a96-40eb-9faf-d31fcde7c7d3';
+  $handler->conf['display'] = $display;
+  $export['term_view__panel_context_0ce8c5bb-0bf8-4a36-a393-b16ebce32d3f'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'term_view__panel_context_88d1f61f-cc93-436d-be09-7b8f1cbb3d71';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -30;
+  $handler->conf = array(
+    'title' => 'Service',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:taxonomy_term',
+          'settings' => array(
+            'type' => array(
+              'services' => 'services',
+            ),
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top_content' => NULL,
+      'middle_content' => NULL,
+      'sidebar_content' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'e349e13a-ba83-4cad-ad9e-7306c2a86e74';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-bc788e35-0918-4efa-aed8-21b10391797e';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'services-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'bc788e35-0918-4efa-aed8-21b10391797e';
+    $display->content['new-bc788e35-0918-4efa-aed8-21b10391797e'] = $pane;
+    $display->panels['middle'][0] = 'new-bc788e35-0918-4efa-aed8-21b10391797e';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['term_view__panel_context_88d1f61f-cc93-436d-be09-7b8f1cbb3d71'] = $handler;
+
   return $export;
 }
 
@@ -1695,6 +2226,151 @@ function ipgb_pages_default_page_manager_handlers() {
  * Implements hook_default_page_manager_pages().
  */
 function ipgb_pages_default_page_manager_pages() {
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'accessories';
+  $page->task = 'page';
+  $page->admin_title = 'Accessories';
+  $page->admin_description = '';
+  $page->path = 'phu-kien/!type';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array(
+    'type' => array(
+      'id' => 1,
+      'identifier' => 'String',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_accessories__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'accessories';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'page-full hide-page-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Phụ kiện';
+  $display->uuid = 'b453b55f-ad9d-4a49-9319-0ff016ef70d6';
+  $display->subtitle = 'Nơi tìm kiếm phụ kiện';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-f5bb4e5a-01f0-49c6-9b96-e51b8c9fe7fc';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => '',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f5bb4e5a-01f0-49c6-9b96-e51b8c9fe7fc';
+    $display->content['new-f5bb4e5a-01f0-49c6-9b96-e51b8c9fe7fc'] = $pane;
+    $display->panels['middle'][0] = 'new-f5bb4e5a-01f0-49c6-9b96-e51b8c9fe7fc';
+    $pane = new stdClass();
+    $pane->pid = 'new-dced3760-3a26-4b8f-b6f7-3cb0a01ef244';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'slideshow-panel_pane_5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'pane-slideshow',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'dced3760-3a26-4b8f-b6f7-3cb0a01ef244';
+    $display->content['new-dced3760-3a26-4b8f-b6f7-3cb0a01ef244'] = $pane;
+    $display->panels['middle'][1] = 'new-dced3760-3a26-4b8f-b6f7-3cb0a01ef244';
+    $pane = new stdClass();
+    $pane->pid = 'new-0965b917-8c3e-471e-9947-4176de2610a5';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'products-panel_pane_6';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'tid' => '%type:raw',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+      'context' => array(
+        0 => 'argument_string_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'product-list container',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '0965b917-8c3e-471e-9947-4176de2610a5';
+    $display->content['new-0965b917-8c3e-471e-9947-4176de2610a5'] = $pane;
+    $display->panels['middle'][2] = 'new-0965b917-8c3e-471e-9947-4176de2610a5';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-0965b917-8c3e-471e-9947-4176de2610a5';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['accessories'] = $page;
+
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
@@ -2134,6 +2810,119 @@ function ipgb_pages_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'contact';
+  $page->task = 'page';
+  $page->admin_title = 'Contact';
+  $page->admin_description = '';
+  $page->path = 'lien-he';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_contact__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'contact';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Liên hệ';
+  $display->uuid = 'bcca0dc6-45bc-4314-b023-5bd6c4622a7c';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-08e46684-0592-474f-91a6-23ab0eb0af3f';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Map',
+      'title' => '',
+      'body' => '<p><iframe allowfullscreen="" frameborder="0" height="500" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.6998454043223!2d106.19468781475855!3d21.28334568441456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31356d0ef9c3a1c5%3A0x9d0ccf96c4fe5767!2zTmfDtSA2LCB0cC4gQuG6r2MgR2lhbmcsIELhuq9jIEdpYW5nLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1464406164806" style="border:0" width="1140"></iframe></p>
+
+<ul class="contact-info">
+	<li><strong>Địa chỉ:</strong>Kiot số 10 - Khách sạn Bắc Giang - Nguyễn Văn Cừ - TP.BG</li>
+	<li><strong>Số điện thoại:</strong>0975.236.632</li>
+	<li><strong>Yahoo:</strong>dienthoaicuvn</li>
+	<li><strong>Facebook:</strong><a href="mailto:iphonebacgiang.com@gmail.com">iphonebacgiang.com@gmail.com</a></li>
+<li><strong>IMessage/Zalo/Viber:</strong>0975.236.632</li>
+
+</ul>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '08e46684-0592-474f-91a6-23ab0eb0af3f';
+    $display->content['new-08e46684-0592-474f-91a6-23ab0eb0af3f'] = $pane;
+    $display->panels['middle'][0] = 'new-08e46684-0592-474f-91a6-23ab0eb0af3f';
+    $pane = new stdClass();
+    $pane->pid = 'new-bb2e7628-9d3f-4ce0-bae8-f23d5c621605';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'webform-client-block-146';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'bb2e7628-9d3f-4ce0-bae8-f23d5c621605';
+    $display->content['new-bb2e7628-9d3f-4ce0-bae8-f23d5c621605'] = $pane;
+    $display->panels['middle'][1] = 'new-bb2e7628-9d3f-4ce0-bae8-f23d5c621605';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-bb2e7628-9d3f-4ce0-bae8-f23d5c621605';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['contact'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'home';
   $page->task = 'page';
   $page->admin_title = 'Home';
@@ -2508,6 +3297,521 @@ function ipgb_pages_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['news'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'products';
+  $page->task = 'page';
+  $page->admin_title = 'Products';
+  $page->admin_description = '';
+  $page->path = 'san-pham';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_products__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'products';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'page-full hide-page-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Sản phẩm';
+  $display->uuid = 'ea05c0b8-2d68-471e-a1fc-469231cf39ff';
+  $display->subtitle = 'Hãy tìm kiếm chiếc smartphone, ipad cho bạn';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => 'page-title',
+      'id' => '',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $display->content['new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715'] = $pane;
+    $display->panels['middle'][0] = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane = new stdClass();
+    $pane->pid = 'new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $pane->panel = 'middle';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'product_facets_filter';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'facet-filter container',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $display->content['new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356'] = $pane;
+    $display->panels['middle'][1] = 'new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $pane = new stdClass();
+    $pane->pid = 'new-725750e4-d186-41c5-a287-7d84a9e439bc';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'node_product_search_api-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'product-list container',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '725750e4-d186-41c5-a287-7d84a9e439bc';
+    $display->content['new-725750e4-d186-41c5-a287-7d84a9e439bc'] = $pane;
+    $display->panels['middle'][2] = 'new-725750e4-d186-41c5-a287-7d84a9e439bc';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['products'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'products_by_series';
+  $page->task = 'page';
+  $page->admin_title = 'Products by series';
+  $page->admin_description = '';
+  $page->path = 'san-pham/dien-thoai/%tid';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array(
+    'tid' => array(
+      'id' => 1,
+      'identifier' => 'String',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_products_by_series__panel_context_0239a285-988f-4743-a589-214bf9bf1584';
+  $handler->task = 'page';
+  $handler->subtask = 'products_by_series';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'page-full hide-page-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Điện thoại %tid:html_safe';
+  $display->uuid = 'ea05c0b8-2d68-471e-a1fc-469231cf39ff';
+  $display->subtitle = 'Hãy tìm kiếm chiếc smartphone ưng ý cho bạn';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => 'page-title',
+      'id' => '',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $display->content['new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715'] = $pane;
+    $display->panels['middle'][0] = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane = new stdClass();
+    $pane->pid = 'new-6f79e3ca-f077-4e94-a80a-d49bee2291d7';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'slideshow-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'iphone*',
+          ),
+          'context' => 'argument_string_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '6f79e3ca-f077-4e94-a80a-d49bee2291d7';
+    $display->content['new-6f79e3ca-f077-4e94-a80a-d49bee2291d7'] = $pane;
+    $display->panels['middle'][1] = 'new-6f79e3ca-f077-4e94-a80a-d49bee2291d7';
+    $pane = new stdClass();
+    $pane->pid = 'new-380474bc-6bac-4041-9db2-1f11c4a98569';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'products-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'term_node_tid_depth' => '%tid:raw',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'container product-list',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '380474bc-6bac-4041-9db2-1f11c4a98569';
+    $display->content['new-380474bc-6bac-4041-9db2-1f11c4a98569'] = $pane;
+    $display->panels['middle'][2] = 'new-380474bc-6bac-4041-9db2-1f11c4a98569';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-380474bc-6bac-4041-9db2-1f11c4a98569';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['products_by_series'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'products_phone';
+  $page->task = 'page';
+  $page->admin_title = 'Products Phone';
+  $page->admin_description = '';
+  $page->path = 'san-pham/dien-thoai';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_products_phone__panel_context_019dcf59-7ee2-4909-a246-7f3f9321915c';
+  $handler->task = 'page';
+  $handler->subtask = 'products_phone';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'page-full hide-page-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Điện thoại';
+  $display->uuid = 'ea05c0b8-2d68-471e-a1fc-469231cf39ff';
+  $display->subtitle = 'Hãy tìm kiếm chiếc smartphone cho bạn';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => 'page-title',
+      'id' => '',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $display->content['new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715'] = $pane;
+    $display->panels['middle'][0] = 'new-8cd3a0a6-cd35-44e1-8b1f-5002dc0a9715';
+    $pane = new stdClass();
+    $pane->pid = 'new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $pane->panel = 'middle';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'product_facets_filter';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'facet-filter container',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $display->content['new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356'] = $pane;
+    $display->panels['middle'][1] = 'new-fe5351fb-c7ec-429b-bf1c-4ae02ea00356';
+    $pane = new stdClass();
+    $pane->pid = 'new-725750e4-d186-41c5-a287-7d84a9e439bc';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'node_product_search_api-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'product-list container',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '725750e4-d186-41c5-a287-7d84a9e439bc';
+    $display->content['new-725750e4-d186-41c5-a287-7d84a9e439bc'] = $pane;
+    $display->panels['middle'][2] = 'new-725750e4-d186-41c5-a287-7d84a9e439bc';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['products_phone'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'services';
+  $page->task = 'page';
+  $page->admin_title = 'Services';
+  $page->admin_description = '';
+  $page->path = 'dich-vu';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_services__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'services';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'spectre';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top_content' => NULL,
+      'middle_content' => NULL,
+      'sidebar_content' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Dịch vụ';
+  $display->uuid = '62181866-cab9-4a28-b448-6af19cc9aae8';
+  $display->subtitle = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-0860d100-8da5-4c5e-bebe-9878a558956a';
+    $pane->panel = 'top_content';
+    $pane->type = 'block';
+    $pane->subtype = 'menu_block-6';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0860d100-8da5-4c5e-bebe-9878a558956a';
+    $display->content['new-0860d100-8da5-4c5e-bebe-9878a558956a'] = $pane;
+    $display->panels['top_content'][0] = 'new-0860d100-8da5-4c5e-bebe-9878a558956a';
+    $pane = new stdClass();
+    $pane->pid = 'new-722b3bd6-aa02-4d0b-8c88-4a0a2eeb7168';
+    $pane->panel = 'top_content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'services-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'empty',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '722b3bd6-aa02-4d0b-8c88-4a0a2eeb7168';
+    $display->content['new-722b3bd6-aa02-4d0b-8c88-4a0a2eeb7168'] = $pane;
+    $display->panels['top_content'][1] = 'new-722b3bd6-aa02-4d0b-8c88-4a0a2eeb7168';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['services'] = $page;
 
   return $pages;
 
