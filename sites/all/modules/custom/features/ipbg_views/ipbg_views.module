@@ -11,8 +11,13 @@ include_once 'ipbg_views.features.inc';
  */
 function ipbg_views_views_pre_render(&$view) {
   if ($view->name == 'node_product_search_api' && $view->current_display == 'panel_pane_1') {
-    $view->style_plugin->row_plugin->rendered_content[540]['#entity_view_mode']['view_mode'] = 'featured';
-    $view->style_plugin->row_plugin->rendered_content[540]['#view_mode'] = 'featured';
+    if (empty($view->style_plugin->row_plugin->rendered_content)) {
+      return;
+    }
+    reset($view->style_plugin->row_plugin->rendered_content);
+    $first_key = key($view->style_plugin->row_plugin->rendered_content);
+    $view->style_plugin->row_plugin->rendered_content[$first_key]['#entity_view_mode']['view_mode'] = 'featured';
+    $view->style_plugin->row_plugin->rendered_content[$first_key]['#view_mode'] = 'featured';
   }
 
 }
