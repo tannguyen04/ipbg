@@ -966,13 +966,14 @@ function product_types_field_default_field_instances() {
       ),
       'node_full' => array(
         'label' => 'hidden',
-        'module' => 'ipbg_product',
+        'module' => 'image_delta_formatter',
         'settings' => array(
-          'image_style' => 'product_gallery',
-          'settings_group' => 'owlcarousel_settings_gallery-product',
-          'trim_length' => '',
+          'deltas' => 0,
+          'deltas_reversed' => FALSE,
+          'image_link' => '',
+          'image_style' => 'product',
         ),
-        'type' => 'owlcarousel_formatter_product',
+        'type' => 'image_delta',
         'weight' => 4,
       ),
       'node_teaser' => array(

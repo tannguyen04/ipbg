@@ -16,6 +16,7 @@ function iphonebacgiang_preprocess_field(&$vars) {
  */
 function iphonebacgiang_preprocess_node(&$vars) {
   $node = $vars['elements']['#node'];
+  $wrapper = entity_metadata_wrapper('node', $node);
   if (isset($node->field_rating)) {
     $rating = field_get_items('node', $node, 'field_rating');
     if (!empty($rating)) {
@@ -23,7 +24,6 @@ function iphonebacgiang_preprocess_node(&$vars) {
     }
   }
  if (isset($node->field_os)) {
-   $wrapper = entity_metadata_wrapper('node', $node);
    $vars['content']['os'] = array();
    foreach ($wrapper->field_os->getIterator() as $delta => $term_wrapper) {
      $label = $term_wrapper->name->value();
@@ -50,7 +50,6 @@ function iphonebacgiang_preprocess_node(&$vars) {
  }
 
  if (isset($node->field_products_ref)) {
-   $wrapper = entity_metadata_wrapper('node', $node);
    $color_product = array();
    foreach ($wrapper->field_products_ref->value() as $key => $product) {
      $wrapper = entity_metadata_wrapper('commerce_product', $product->product_id);
@@ -69,7 +68,43 @@ function iphonebacgiang_preprocess_node(&$vars) {
      );
    }
  }
-
+  if ($node->type == 'mobile') {
+    //gallery image
+    $wrapper = entity_metadata_wrapper('node', $node);
+    $items = $wrapper->field_images->value();
+    foreach ($items as $key => $item) {
+      $image = array(
+        'path' => $item['uri'],
+        'width' => isset($item['width']) ? $item['width'] : '',
+        'height' => isset($item['height']) ? $item['height'] : '',
+        'alt' => $item['alt'],
+        'title' => $item['title'],
+        'style_name' => 'product_gallery',
+      );
+      $items_group[]['row'] = theme('image_style', $image);
+    }
+    if (!empty($items_group)) {
+      $settings_group = array(
+        'instance' => 'owlcarousel_settings_gallery-product',
+        'id' => 'owlcarousel-mobile',
+      );
+      $vars['content']['mobile_gallery'] = array(
+        '#theme' => 'owlcarousel',
+        '#items' => $items_group,
+        '#settings' => $settings_group,
+        '#prefix' => '<div class="wrap-owlcarousel modal fade" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div><div class="modal-body">',
+        '#suffix' => '</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div></div>',
+      );
+    }
+  }
 
 }
 /*

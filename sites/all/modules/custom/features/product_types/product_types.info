@@ -38,4 +38,4 @@ features[field_instance][] = commerce_product-mobile-field_color_ref
 features[field_instance][] = commerce_product-mobile-field_images
 features[field_instance][] = commerce_product-mobile-field_memory
 features[variable][] = field_bundle_settings_commerce_product__mobile
-mtime = 1461345380
+mtime = 1463276560

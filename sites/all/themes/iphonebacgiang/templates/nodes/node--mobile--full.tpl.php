@@ -86,6 +86,8 @@
         <?php print render($title_prefix); ?>
         <div class="media col-xs-12 col-sm-6">
           <?php print render($content['product:field_images']); ?>
+          <a class="show-slide" href="#"><?php print t('View Gallery'); ?></a>
+          <?php print render($content['mobile_gallery']); ?>
         </div>
         <?php print render($title_suffix); ?>
         <div class="info col-xs-12 col-sm-6">
