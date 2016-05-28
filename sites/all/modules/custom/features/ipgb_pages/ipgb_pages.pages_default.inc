@@ -2082,7 +2082,7 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Default',
     'no_blocks' => 0,
@@ -2219,6 +2219,138 @@ function ipgb_pages_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $export['term_view__panel_context_88d1f61f-cc93-436d-be09-7b8f1cbb3d71'] = $handler;
 
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'term_view__panel_context_c40c01c0-95d3-4f57-a1e4-c1d3e5491015';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -29;
+  $handler->conf = array(
+    'title' => 'Accessory',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'page-full hide-page-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:taxonomy_term',
+          'settings' => array(
+            'type' => array(
+              'accessories' => 'accessories',
+            ),
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'd4d70d5b-4610-4311-9851-8f7d1f951b64';
+  $display->subtitle = 'Nơi tìm kiếm phụ kiện';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-dce25aa0-ca3e-40c7-891b-86ec7d46fcd3';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => '',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'dce25aa0-ca3e-40c7-891b-86ec7d46fcd3';
+    $display->content['new-dce25aa0-ca3e-40c7-891b-86ec7d46fcd3'] = $pane;
+    $display->panels['middle'][0] = 'new-dce25aa0-ca3e-40c7-891b-86ec7d46fcd3';
+    $pane = new stdClass();
+    $pane->pid = 'new-c7def181-e43c-425d-862e-e4d4ff6921f7';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'slideshow-panel_pane_5';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'pane-slideshow',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'c7def181-e43c-425d-862e-e4d4ff6921f7';
+    $display->content['new-c7def181-e43c-425d-862e-e4d4ff6921f7'] = $pane;
+    $display->panels['middle'][1] = 'new-c7def181-e43c-425d-862e-e4d4ff6921f7';
+    $pane = new stdClass();
+    $pane->pid = 'new-f3d9b3cb-2404-495d-8d34-29539445c7a6';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'products-panel_pane_6';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'product-list container',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'f3d9b3cb-2404-495d-8d34-29539445c7a6';
+    $display->content['new-f3d9b3cb-2404-495d-8d34-29539445c7a6'] = $pane;
+    $display->panels['middle'][2] = 'new-f3d9b3cb-2404-495d-8d34-29539445c7a6';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['term_view__panel_context_c40c01c0-95d3-4f57-a1e4-c1d3e5491015'] = $handler;
+
   return $export;
 }
 
@@ -2348,7 +2480,7 @@ function ipgb_pages_default_page_manager_pages() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
       'context' => array(
-        0 => 'argument_string_1',
+        0 => 'empty',
       ),
     );
     $pane->cache = array();
