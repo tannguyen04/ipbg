@@ -65,6 +65,75 @@ function field_base_image_default_styles() {
     ),
   );
 
+  // Exported image style: features_overview.
+  $styles['features_overview'] = array(
+    'name' => 'features_overview',
+    'label' => 'Features overview',
+    'effects' => array(
+      8 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 500,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: product.
+  $styles['product'] = array(
+    'name' => 'product',
+    'label' => 'Product',
+    'effects' => array(
+      18 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 430,
+          'height' => 430,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: product_gallery.
+  $styles['product_gallery'] = array(
+    'name' => 'product_gallery',
+    'label' => 'Product gallery',
+    'effects' => array(
+      17 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 500,
+          'height' => 380,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: product_list.
   $styles['product_list'] = array(
     'name' => 'product_list',
@@ -85,6 +154,29 @@ function field_base_image_default_styles() {
           'upscale' => 0,
         ),
         'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: service_list.
+  $styles['service_list'] = array(
+    'name' => 'service_list',
+    'label' => 'Service list',
+    'effects' => array(
+      19 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 400,
+        ),
+        'weight' => 1,
       ),
     ),
   );
