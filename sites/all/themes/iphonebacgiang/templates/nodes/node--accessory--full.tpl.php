@@ -80,22 +80,30 @@
  * @ingroup themeable
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="box-product box-product--accessory box-product-teaser <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="box-content"<?php print $content_attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <div class="box-product-teaser--image">
-        <?php print render($content['field_image'][0]); ?>
+<div id="node-<?php print $node->nid; ?>" class="box-product-accessory-<?php print $view_mode; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <?php print render($title_prefix); ?>
+  <?php print render($title_suffix); ?>
+  <div class="content">
+    <div class="content-header">
+      <div class="container">
+        <div class="row">
+          <div class="summary-info col-xs-12 col-sm-5">
+            <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+            <?php print render($content['field_body_box']); ?>
+            <?php print render($content['field_mobile_price']); ?>
+          </div>
+          <div class="media-info col-xs-12 col-sm-5">
+            <div class="media-info-inner">
+              <?php print render($content['field_image']); ?>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <?php print render($title_suffix); ?>
-    <h2 class="box-product-teaser--title node-title title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
-    <div class="box-product--description box-product-teaser--description">
-      <?php print render($content['body']); ?>
-    </div>
-    <div class="box-product--price box-product-teaser--price">
-        <?php print render($content['field_mobile_price']); ?>
+    <div class="content-body container"<?php print $content_attributes; ?>>
+      <?php
+      print render($content['body']);
+      ?>
     </div>
   </div>
-  <div class="box-footer">
-
-  </div>
-</article>
+</div>

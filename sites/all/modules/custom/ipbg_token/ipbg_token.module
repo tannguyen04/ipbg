@@ -55,6 +55,7 @@ function ipbg_token_tokens($type, $tokens, $data = array(), $options = array()) 
       $config_override['parent_mlid'] = $parent_mlid;
       $config_override['parent'] = $menu_name . ':' . $parent_mlid;
       $config_override['delta'] = NULL;
+      $config_override['title_link'] = 1;
       //Build menu tree
       $menu_block_config = array_merge($menu_block_default_config, $config_override);
       try {

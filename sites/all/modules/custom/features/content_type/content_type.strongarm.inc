@@ -417,6 +417,16 @@ function content_type_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'sharethis' => array(
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '7',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
@@ -909,7 +919,14 @@ function content_type_strongarm() {
           'weight' => '30',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'sharethis' => array(
+          'full' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__service'] = $strongarm;

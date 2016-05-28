@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a node.
@@ -77,25 +76,24 @@
  * @see template_preprocess_node()
  * @see template_process()
  *
- * @ingroup themeable
+ * @ingroup templates
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="box-product box-product--accessory box-product-teaser <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="box-content"<?php print $content_attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <div class="box-product-teaser--image">
-        <?php print render($content['field_image'][0]); ?>
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <div class="service-media">
+        <?php print render($content['field_image']); ?>
+      </div>
     </div>
-    <?php print render($title_suffix); ?>
-    <h2 class="box-product-teaser--title node-title title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
-    <div class="box-product--description box-product-teaser--description">
-      <?php print render($content['body']); ?>
+    <div class="col-xs-12 col-sm-9">
+      <div class="service-summary-info">
+        <?php print render($title_prefix); ?>
+        <h2 class="node-title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+        <?php print render($title_suffix); ?>
+        <?php print render($content['body']); ?>
+        <?php print l('Read more', 'node/' . $node->nid, array('attributes' => array('class' => array('read-more')))); ?>
+      </div>
     </div>
-    <div class="box-product--price box-product-teaser--price">
-        <?php print render($content['field_mobile_price']); ?>
-    </div>
-  </div>
-  <div class="box-footer">
-
   </div>
 </article>

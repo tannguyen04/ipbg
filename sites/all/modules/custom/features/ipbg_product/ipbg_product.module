@@ -53,10 +53,6 @@ function ipbg_product_preprocess_anchor_link_product_display(&$variables) {
       'fragment' => 'overview',
     );
   }
-  $anchor_links[] = array(
-    'title' => t('Review'),
-    'fragment' => 'review',
-  );
   //Technical
   $technical = field_get_items('node', $node, 'field_technical_overview');
   if (!empty($technical)) {

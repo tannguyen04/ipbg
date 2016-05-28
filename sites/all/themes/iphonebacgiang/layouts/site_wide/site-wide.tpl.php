@@ -1,11 +1,11 @@
 <div class="site-wide">
-  <?php if(!empty($content['header_top'])): ?>
-    <div id="header-top">
-      <div class="container">
+  <div id="header-top">
+    <div class="container">
+      <?php if(!empty($content['header_top'])): ?>
         <?php print $content['header_top']; ?>
-      </div>
+      <?php endif; ?>
     </div>
-  <?php endif; ?>
+  </div>
 
 
   <div id="header">

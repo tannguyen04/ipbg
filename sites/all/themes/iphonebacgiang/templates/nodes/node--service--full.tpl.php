@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a node.
@@ -77,25 +76,23 @@
  * @see template_preprocess_node()
  * @see template_process()
  *
- * @ingroup themeable
+ * @ingroup templates
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="box-product box-product--accessory box-product-teaser <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="box-content"<?php print $content_attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <div class="box-product-teaser--image">
-        <?php print render($content['field_image'][0]); ?>
-    </div>
-    <?php print render($title_suffix); ?>
-    <h2 class="box-product-teaser--title node-title title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title ?></a></h2>
-    <div class="box-product--description box-product-teaser--description">
-      <?php print render($content['body']); ?>
-    </div>
-    <div class="box-product--price box-product-teaser--price">
-        <?php print render($content['field_mobile_price']); ?>
-    </div>
+<article id="node-<?php print $node->nid; ?>" class="node-full <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
+    <header>
+      <?php print render($title_prefix); ?>
+      <?php if (!$page && !empty($title)): ?>
+        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+    </header>
+  <?php endif; ?>
+  <div class="service-media">
+    <?php print render($content['field_image']); ?>
   </div>
-  <div class="box-footer">
-
+  <div class="service-info">
+    <?php print render($content['body']); ?>
   </div>
 </article>
