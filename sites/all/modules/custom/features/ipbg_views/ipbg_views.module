@@ -16,8 +16,8 @@ function ipbg_views_views_pre_render(&$view) {
     }
     reset($view->style_plugin->row_plugin->rendered_content);
     $first_key = key($view->style_plugin->row_plugin->rendered_content);
-    $view->style_plugin->row_plugin->rendered_content[$first_key]['#entity_view_mode']['view_mode'] = 'featured';
-    $view->style_plugin->row_plugin->rendered_content[$first_key]['#view_mode'] = 'featured';
+    $first_row = $view->style_plugin->row_plugin->rendered_content[$first_key];
+    $view->style_plugin->row_plugin->rendered_content[$first_key] = node_view($first_row['#node'], 'featured');
   }
 
 }
