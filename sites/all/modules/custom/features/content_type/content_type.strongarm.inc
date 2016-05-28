@@ -1020,6 +1020,12 @@ function content_type_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'sharethis' => array(
+          'featured' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

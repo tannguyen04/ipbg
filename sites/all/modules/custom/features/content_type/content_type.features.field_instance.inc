@@ -2655,8 +2655,8 @@ function content_type_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'image_link' => 'content',
+          'image_style' => 'product_feature',
         ),
         'type' => 'image',
         'weight' => 21,
