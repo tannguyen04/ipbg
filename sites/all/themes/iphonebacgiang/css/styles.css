@@ -9964,17 +9964,18 @@ article.box-product-teaser > .box-content h2.box-product-teaser--title {
 /* line 915, ../sass/styles.scss */
 .box-banner .field-name-field-title-box {
   font-size: 1.2em;
+  margin-bottom: 10px;
 }
-/* line 918, ../sass/styles.scss */
+/* line 919, ../sass/styles.scss */
 .box-banner .field-name-field-body-box {
   font-size: 0.9em;
 }
-/* line 921, ../sass/styles.scss */
+/* line 922, ../sass/styles.scss */
 .box-banner .box-banner--info {
   padding-right: 20px;
 }
 
-/* line 927, ../sass/styles.scss */
+/* line 928, ../sass/styles.scss */
 .field-name-field-box-banner-item .entity-field-collection-item {
   background-color: #efefef;
   padding: 20px;
@@ -9982,99 +9983,99 @@ article.box-product-teaser > .box-content h2.box-product-teaser--title {
   border-bottom: none;
 }
 
-/* line 936, ../sass/styles.scss */
+/* line 937, ../sass/styles.scss */
 .pane-best-sale .pane-content .views-row {
   border-right: 1px solid #fff;
   text-align: center;
 }
-/* line 940, ../sass/styles.scss */
+/* line 941, ../sass/styles.scss */
 .pane-best-sale .pane-content h3 {
   font-size: 1em;
 }
 
-/* line 946, ../sass/styles.scss */
+/* line 947, ../sass/styles.scss */
 .pane-hot-products .pane-content {
   background-color: #efefef;
 }
-/* line 948, ../sass/styles.scss */
+/* line 949, ../sass/styles.scss */
 .pane-hot-products .pane-content .views-field-title {
   font-size: 1.3em;
   color: #032b5a;
   font-family: Frutiger-45light;
   padding-bottom: 20px;
 }
-/* line 954, ../sass/styles.scss */
+/* line 955, ../sass/styles.scss */
 .pane-hot-products .pane-content .views-row {
   padding-top: 15px;
   padding-bottom: 15px;
   border-right: 1px solid #fff;
 }
 
-/* line 962, ../sass/styles.scss */
+/* line 963, ../sass/styles.scss */
 .hot-product-image-info .hot-product-image,
 .hot-product-image-info .hot-product-info {
   float: left;
   width: 50%;
 }
-/* line 967, ../sass/styles.scss */
+/* line 968, ../sass/styles.scss */
 .hot-product-image-info .hot-product-info {
   padding-left: 20px;
   font-size: 0.9em;
 }
 
-/* line 973, ../sass/styles.scss */
+/* line 974, ../sass/styles.scss */
 .pane-hot-products,
 .pane-best-sale,
 .pane-brands {
   margin-bottom: 40px;
 }
 
-/* line 980, ../sass/styles.scss */
+/* line 981, ../sass/styles.scss */
 ul.facetapi-facetapi-checkbox-links li {
   list-style: none;
 }
 
-/* line 986, ../sass/styles.scss */
+/* line 987, ../sass/styles.scss */
 .fivestar-static-item .description {
   display: none;
 }
-/* line 989, ../sass/styles.scss */
+/* line 990, ../sass/styles.scss */
 .fivestar-static-item .form-item {
   margin: 1px 0 0 0;
 }
 
-/* line 993, ../sass/styles.scss */
+/* line 994, ../sass/styles.scss */
 .node-service.node-teaser {
   margin-bottom: 20px;
 }
-/* line 995, ../sass/styles.scss */
+/* line 996, ../sass/styles.scss */
 .node-service.node-teaser .service-summary-info {
   background-color: #efefef;
   height: 263px;
   overflow: hidden;
   padding: 0 20px;
 }
-/* line 1001, ../sass/styles.scss */
+/* line 1002, ../sass/styles.scss */
 .node-service.node-teaser h2.node-title {
   font-size: 1.3em;
 }
 
-/* line 1006, ../sass/styles.scss */
+/* line 1007, ../sass/styles.scss */
 .node-service.node-full .service-media {
   margin-bottom: 30px;
 }
 
-/* line 1014, ../sass/styles.scss */
+/* line 1015, ../sass/styles.scss */
 .webform-client-form .form-text {
   max-width: 400px;
 }
 
-/* line 1022, ../sass/styles.scss */
+/* line 1023, ../sass/styles.scss */
 .webform-client-form .webform-component--product-buy {
   display: none;
 }
 
-/* line 1026, ../sass/styles.scss */
+/* line 1027, ../sass/styles.scss */
 .contact-info li strong {
   width: 200px;
   display: inline-block;
@@ -10084,7 +10085,7 @@ ul.facetapi-facetapi-checkbox-links li {
  * Row with equal height columns
  * --------------------------------------------------
  */
-/* line 1045, ../sass/styles.scss */
+/* line 1046, ../sass/styles.scss */
 .row-eq-height {
   display: -webkit-box;
   display: -webkit-flex;
