@@ -10084,3 +10084,15 @@ ul.facetapi-facetapi-checkbox-links li {
   width: 200px;
   display: inline-block;
 }
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+/* line 1049, ../sass/styles.scss */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
