@@ -3220,7 +3220,7 @@ function ipgb_pages_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'container pane-best-sale',
+      'css_class' => 'container',
     );
     $pane->extras = array();
     $pane->position = 4;

@@ -48,14 +48,14 @@ function content_type_field_default_field_instances() {
   $field_instances['field_collection_item-field_box_banner_item-field_image'] = array(
     'bundle' => 'field_box_banner_item',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Image nên có kick thước 520x200',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'box_banner',
         ),
         'type' => 'image',
         'weight' => 1,
@@ -78,12 +78,19 @@ function content_type_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'image' => 'image',
+        ),
+        'browser_plugins' => array(),
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 3,
     ),
   );
@@ -4202,6 +4209,7 @@ function content_type_field_default_field_instances() {
   t('Giá');
   t('Hãng sản xuất');
   t('Image');
+  t('Image nên có kick thước 520x200');
   t('Images');
   t('Items');
   t('Kiểu');

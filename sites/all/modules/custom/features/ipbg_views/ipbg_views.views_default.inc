@@ -301,7 +301,9 @@ function ipbg_views_views_default_views() {
 [field_image]
 <h3>[title]</h3>
 </div>';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
@@ -487,7 +489,7 @@ function ipbg_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Mobile';
+  $handler->display->display_options['title'] = 'Sản phẩm mới';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1475,7 +1477,7 @@ function ipbg_views_views_default_views() {
   );
   $translatables['products'] = array(
     t('Master'),
-    t('Mobile'),
+    t('Sản phẩm mới'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -1502,6 +1504,7 @@ function ipbg_views_views_default_views() {
     t('Điện thoại %1'),
     t('Điện thoại %2'),
     t('App mobile Related'),
+    t('Mobile'),
     t('%1'),
     t('View panes'),
     t('Apps'),
