@@ -93,7 +93,7 @@
             <?php print render($content['field_product_price']); ?>
             <?php print render($content['os']); ?>
           </div>
-          <div class="media-info col-xs-12 col-sm-5">
+          <div class="media-info col-xs-12 col-sm-7">
             <div class="media-info-inner">
               <?php print render($content['field_images']); ?>
             </div>
