@@ -100,7 +100,7 @@
         </div>
 
         <div class="box-product-featured--image">
-            <?php print render($content['field_image']); ?>
+            <?php print render($content['field_image'][0]); ?>
         </div>
       </div>
     </div>
