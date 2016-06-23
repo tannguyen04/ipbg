@@ -57,7 +57,7 @@ function ipbg_product_preprocess_anchor_link_product_display(&$variables) {
   $technical = field_get_items('node', $node, 'field_technical_overview');
   if (!empty($technical)) {
     $anchor_links[] = array(
-      'title' => t('Thông số kĩ '),
+      'title' => t('Thông số kĩ thuật'),
       'fragment' => 'technical',
     );
   }
@@ -65,7 +65,7 @@ function ipbg_product_preprocess_anchor_link_product_display(&$variables) {
   $product_related = field_get_items('node', $node, 'field_node_related');
   if (!empty($product_related)) {
     $anchor_links[] = array(
-      'title' => t('Sản phẩm liên quan'),
+      'title' => t('Sản phẩm liên '),
       'fragment' => 'related',
     );
   }
