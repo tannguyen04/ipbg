@@ -51,12 +51,14 @@ function iphonebacgiang_preprocess_node(&$vars) {
 
  if (isset($node->field_products_ref)) {
    $color_product = array();
+   $color_array = array();
    foreach ($wrapper->field_products_ref->value() as $key => $product) {
      $wrapper = entity_metadata_wrapper('commerce_product', $product->product_id);
      $color = $wrapper->field_color_ref->value();
-     if (!empty($color)) {
+     if (!empty($color) && !in_array($color->tid, $color_array)) {
        $color_product[] = render(taxonomy_term_view($color, 'add_to_cart_form'));
      }
+     $color_array[] = $color->tid;
    }
    if (!empty($color_product)) {
      $vars['content']['color_product'] = array(
