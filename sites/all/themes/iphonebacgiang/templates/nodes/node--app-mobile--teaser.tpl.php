@@ -99,6 +99,6 @@
   </div>
   <div class="box-footer">
     <?php print render($content['os']); ?>
-    <?php print l('Learn more', 'node/' . $node->nid, array('attributes' => array('class' => array('learn-more')))); ?>
+    <?php print l('Xem thêm', 'node/' . $node->nid, array('attributes' => array('class' => array('learn-more')))); ?>
   </div>
 </article>

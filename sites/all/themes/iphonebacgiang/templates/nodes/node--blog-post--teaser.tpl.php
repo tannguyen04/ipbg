@@ -95,7 +95,7 @@
       <div class="box-blog--description box-blog-teaser--description">
         <?php print render($content['body']); ?>
       </div>
-      <?php print l('Learn more', 'node/' . $node->nid, array('attributes' => array('class' => array('learn-more')))); ?>
+      <?php print l('Xem thêm', 'node/' . $node->nid, array('attributes' => array('class' => array('learn-more')))); ?>
     </div>
   </div>
 </article>

@@ -92,7 +92,7 @@
         <h2 class="node-title" <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
         <?php print render($title_suffix); ?>
         <?php print render($content['body']); ?>
-        <?php print l('Read more', 'node/' . $node->nid, array('attributes' => array('class' => array('read-more')))); ?>
+        <?php print l('Xem thêm', 'node/' . $node->nid, array('attributes' => array('class' => array('read-more')))); ?>
       </div>
     </div>
   </div>
