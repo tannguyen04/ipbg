@@ -78,14 +78,15 @@ h2.pane-title {
 #header .pane-page-logo {
   padding-top: 20px;
   padding-bottom: 20px;
+  float: left;
   img {
     width: 300px;
     height: auto;
   }
 }
-#header .pane-page-logo,
 #header .pane-system-main-menu {
-  margin-bottom: -1px;
+  float: right;
+  padding: 40px 100px 0 0;
 }
 #navigation {
   border-bottom: 1px solid #d9d9d9;
@@ -140,20 +141,6 @@ h2.pane-title {
     font-size: 1em;
     margin: 0;
     padding: 0;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    &:hover {
-      border-right: 1px solid #d0d0d0;
-      border-left: 1px solid #d0d0d0;
-      a {
-        background-color: #fff;
-      }
-    }
-    > a {
-      padding: 24px 15px 0 10px;
-      height: 76px;
-      display: block;
-    }
     &.dropdown-mega-menu:hover {
       .mega-menu {
         display: block;
@@ -189,6 +176,7 @@ h2.pane-title {
     color: #032b5a;
     &:hover {
       color: #419eda;
+      background-color: transparent;
     }
   }
   color: #032b5a;
