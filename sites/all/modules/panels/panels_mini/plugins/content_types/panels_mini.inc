@@ -4,7 +4,7 @@
  * @file
  * Contains the content type plugin for a mini panel. While this does not
  * need to be broken out into a .inc file, it's convenient that we do so
- * that we don't load code unneccessarily. Plus it demonstrates plugins
+ * that we don't load code unnecessarily. Plus it demonstrates plugins
  * in modules other than Panels itself.
  *
  */
@@ -68,25 +68,12 @@ function _panels_mini_panels_mini_content_type_content_type($mini) {
     $type['required context'] = array();
     foreach ($mini->requiredcontexts as $context) {
       $info = ctools_get_context($context['name']);
-      // TODO: allow an optional setting
-      $type['required context'][] = new ctools_context_required($context['identifier'], $info['context name']);
-    }
-  }
-
-  // Determine if this mini panel contains a pane that needs to be rendered
-  // either first or last.  This is not perfect as it's possible for a mini
-  // panel could contain both sorts of panes, but we'll prefer the setting for
-  // the first one we come across.
-  if (!empty($mini->display->content)) {
-    foreach ($mini->display->content as $pane) {
-      $content_type = ctools_content_get_subtype($pane->type, $pane->subtype);
-      if (!empty($content_type['render last'])) {
-        $type['render last'] = TRUE;
-        break;
+      // Check if the required context is actually required.
+      if (!empty($context['optional'])) {
+        $type['required context'][] = new ctools_context_optional($context['identifier'], $info['context name']);
       }
-      if (!empty($content_type['render first'])) {
-        $type['render first'] = TRUE;
-        break;
+      else {
+        $type['required context'][] = new ctools_context_required($context['identifier'], $info['context name']);
       }
     }
   }
