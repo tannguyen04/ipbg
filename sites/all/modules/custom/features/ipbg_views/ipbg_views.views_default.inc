@@ -28,36 +28,37 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -67,11 +68,14 @@ function ipbg_views_views_default_views() {
 
   /* Display: Latest */
   $handler = $view->new_display('panel_pane', 'Latest', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Tin mới';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -105,6 +109,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['pager']['options']['items_first_page'] = '10';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -126,20 +134,21 @@ function ipbg_views_views_default_views() {
     t('Latest'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('All'),
+    t('Tin mới'),
+    t('Tất cả'),
     t('View panes'),
     t('News'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
   );
   $export['blog'] = $view;
 
@@ -160,28 +169,34 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'ipbg_product';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['pager']['options']['items_first_page'] = '11';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Field: Indexed Content: Node ID */
+  /* Trường: Indexed Nội dung: Node ID */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_node_product_index';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Sort criterion: Indexed Content: Date created */
+  /* Sort criterion: Indexed Nội dung: Ngày tạo */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_node_product_index';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Search: Indexed taxonomy term fields */
+  /* Contextual filter: Tìm kiếm: Indexed taxonomy term fields */
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['id'] = 'search_api_views_taxonomy_term';
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['table'] = 'search_api_index_node_product_index';
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['field'] = 'search_api_views_taxonomy_term';
+  $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['specify_validation'] = TRUE;
@@ -193,7 +208,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['validate_options']['transform'] = TRUE;
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['search_api_views_taxonomy_term']['not'] = 0;
-  /* Filter criterion: Indexed Content: Content type */
+  /* Filter criterion: Indexed Nội dung: Kiểu nội dung */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_node_product_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -217,21 +232,21 @@ function ipbg_views_views_default_views() {
     t('Master'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
     t('Node ID'),
     t('.'),
     t(','),
-    t('All'),
+    t('Tất cả'),
     t('Products Phone'),
     t('View panes'),
   );
@@ -257,6 +272,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -273,7 +289,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
     'best_sale' => 'best_sale',
   );
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -285,14 +301,14 @@ function ipbg_views_views_default_views() {
     'image_style' => 'product_list',
     'image_link' => 'content',
   );
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
+  /* Trường: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -301,15 +317,13 @@ function ipbg_views_views_default_views() {
 [field_image]
 <h3>[title]</h3>
 </div>';
-  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filter criterion: Content: Published or admin */
+  /* Filter criterion: Nội dung: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -323,7 +337,7 @@ function ipbg_views_views_default_views() {
     t('Sản phẩm bán chạy'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -356,6 +370,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
@@ -368,7 +383,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
     'home_slideshow' => 'home_slideshow',
   );
-  /* Field: Content: Rendered Content */
+  /* Trường: Nội dung: Rendered Nội dung */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
@@ -378,14 +393,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'teaser';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
-  /* Field: Content: Nid */
+  /* Trường: Nội dung: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Global: View result counter */
+  /* Trường: Global: View result counter */
   $handler->display->display_options['fields']['counter']['id'] = 'counter';
   $handler->display->display_options['fields']['counter']['table'] = 'views';
   $handler->display->display_options['fields']['counter']['field'] = 'counter';
@@ -399,7 +414,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filter criterion: Content: Published or admin */
+  /* Filter criterion: Nội dung: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -466,7 +481,7 @@ function ipbg_views_views_default_views() {
     t('<none>'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -495,11 +510,16 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'ipbg_product';
   $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['pager']['options']['items_first_page'] = '11';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
@@ -512,31 +532,31 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
   $handler->display->display_options['row_options']['alternating_fieldset']['alternating'] = TRUE;
   $handler->display->display_options['row_options']['alternating_fieldset']['item_0'] = 'featured';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -563,7 +583,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Related */
+  /* Trường: Nội dung: Related */
   $handler->display->display_options['fields']['field_node_related']['id'] = 'field_node_related';
   $handler->display->display_options['fields']['field_node_related']['table'] = 'field_data_field_node_related';
   $handler->display->display_options['fields']['field_node_related']['field'] = 'field_node_related';
@@ -572,18 +592,19 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_node_related']['type'] = 'entityreference_entity_view';
   $handler->display->display_options['fields']['field_node_related']['settings'] = array(
     'view_mode' => 'teaser',
-    'links' => 1,
+    'links' => 0,
   );
   $handler->display->display_options['fields']['field_node_related']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_node_related']['delta_limit'] = 'all';
   $handler->display->display_options['fields']['field_node_related']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -595,22 +616,18 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'accessory' => 'accessory',
-    'mobile' => 'mobile',
-  );
-  $handler->display->display_options['filters']['type_1']['group'] = 1;
+  /* Filter criterion: Nội dung: Related (field_node_related) */
+  $handler->display->display_options['filters']['field_node_related_target_id']['id'] = 'field_node_related_target_id';
+  $handler->display->display_options['filters']['field_node_related_target_id']['table'] = 'field_data_field_node_related';
+  $handler->display->display_options['filters']['field_node_related_target_id']['field'] = 'field_node_related_target_id';
+  $handler->display->display_options['filters']['field_node_related_target_id']['operator'] = 'not empty';
 
   /* Display: Accessories */
   $handler = $view->new_display('block', 'Accessories', 'block_2');
@@ -631,31 +648,32 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Mobile (field_mobile_ref) */
+  /* Contextual filter: Nội dung: Mobile (field_mobile_ref) */
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['id'] = 'field_mobile_ref_target_id';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['table'] = 'field_data_field_mobile_ref';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['field'] = 'field_mobile_ref_target_id';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_mobile_ref_target_id']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_mobile_ref_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -673,11 +691,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Contextual filter: Nội dung: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
@@ -685,14 +704,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '9';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -717,18 +736,18 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Điện thoại';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Contextual filter: Nội dung: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -740,7 +759,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '9';
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
@@ -753,14 +772,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -794,17 +813,18 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['tid']['default_argument_options']['anyall'] = '+';
@@ -817,7 +837,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['tid']['break_phrase'] = TRUE;
   $handler->display->display_options['arguments']['tid']['reduce_duplicates'] = TRUE;
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -830,14 +850,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['not'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -849,10 +869,11 @@ function ipbg_views_views_default_views() {
   /* Display: Mobile */
   $handler = $view->new_display('panel_pane', 'Mobile', 'panel_pane_1');
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Contextual filter: Nội dung: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['term_node_tid_depth']['title_enable'] = TRUE;
   $handler->display->display_options['arguments']['term_node_tid_depth']['title'] = '%1';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
@@ -890,11 +911,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['title'] = 'Apps';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
-      'secondary_label' => 'Advanced options',
+      'secondary_label' => 'Tùy chọn nâng cao',
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
@@ -970,6 +992,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -979,14 +1005,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -994,7 +1020,7 @@ function ipbg_views_views_default_views() {
     'app_mobile' => 'app_mobile',
   );
   $handler->display->display_options['filters']['type_1']['group'] = 1;
-  /* Filter criterion: Content: Has taxonomy term */
+  /* Filter criterion: Nội dung: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
@@ -1028,11 +1054,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['title'] = 'Apps';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
-      'secondary_label' => 'Advanced options',
+      'secondary_label' => 'Tùy chọn nâng cao',
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
@@ -1108,6 +1135,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -1117,14 +1148,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -1132,7 +1163,7 @@ function ipbg_views_views_default_views() {
     'app_mobile' => 'app_mobile',
   );
   $handler->display->display_options['filters']['type_1']['group'] = 1;
-  /* Filter criterion: Content: Has taxonomy term */
+  /* Filter criterion: Nội dung: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
@@ -1147,10 +1178,11 @@ function ipbg_views_views_default_views() {
     1 => 0,
     3 => 0,
   );
+  $handler->display->display_options['filters']['tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'os';
   $handler->display->display_options['filters']['tid']['hierarchy'] = 1;
-  /* Filter criterion: Content: Kiểu (field_type_app_mobile) */
+  /* Filter criterion: Nội dung: Kiểu (field_type_app_mobile) */
   $handler->display->display_options['filters']['field_type_app_mobile_value']['id'] = 'field_type_app_mobile_value';
   $handler->display->display_options['filters']['field_type_app_mobile_value']['table'] = 'field_data_field_type_app_mobile';
   $handler->display->display_options['filters']['field_type_app_mobile_value']['field'] = 'field_type_app_mobile_value';
@@ -1173,11 +1205,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['title'] = 'Apps';
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
-      'secondary_label' => 'Advanced options',
+      'secondary_label' => 'Tùy chọn nâng cao',
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
@@ -1253,6 +1286,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -1262,14 +1299,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
@@ -1277,7 +1314,7 @@ function ipbg_views_views_default_views() {
     'app_mobile' => 'app_mobile',
   );
   $handler->display->display_options['filters']['type_1']['group'] = 1;
-  /* Filter criterion: Content: Has taxonomy term */
+  /* Filter criterion: Nội dung: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
@@ -1295,7 +1332,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'os';
   $handler->display->display_options['filters']['tid']['hierarchy'] = 1;
-  /* Filter criterion: Content: Kiểu (field_type_app_mobile) */
+  /* Filter criterion: Nội dung: Kiểu (field_type_app_mobile) */
   $handler->display->display_options['filters']['field_type_app_mobile_value']['id'] = 'field_type_app_mobile_value';
   $handler->display->display_options['filters']['field_type_app_mobile_value']['table'] = 'field_data_field_type_app_mobile';
   $handler->display->display_options['filters']['field_type_app_mobile_value']['field'] = 'field_type_app_mobile_value';
@@ -1343,14 +1380,14 @@ function ipbg_views_views_default_views() {
     'iphone_slideshow' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1362,7 +1399,7 @@ function ipbg_views_views_default_views() {
     'image_style' => 'product_list',
     'image_link' => 'content',
   );
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -1373,7 +1410,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '200',
   );
-  /* Field: Content: Link */
+  /* Trường: Nội dung: Liên kết */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -1381,7 +1418,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Xem chi tiết';
-  /* Field: Global: Custom text */
+  /* Trường: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1404,7 +1441,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1422,6 +1459,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -1429,10 +1470,11 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
@@ -1442,14 +1484,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1480,23 +1522,22 @@ function ipbg_views_views_default_views() {
     t('Sản phẩm mới'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
     t('Related'),
     t('Sản phẩm khác'),
     t('Tất cả'),
     t('Accessories'),
     t('Phụ kiện'),
-    t('All'),
     t('By term'),
     t('Sản phẩm'),
     t('Trang'),
@@ -1508,7 +1549,7 @@ function ipbg_views_views_default_views() {
     t('%1'),
     t('View panes'),
     t('Apps'),
-    t('Advanced options'),
+    t('Tùy chọn nâng cao'),
     t('Select any filter and click on Apply to see results'),
     t('Operator System: '),
     t('Apps Game'),
@@ -1543,34 +1584,39 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Field: Content: Icon */
+  /* Trường: Nội dung: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
   $handler->display->display_options['fields']['field_icon']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Subtitle */
+  /* Trường: Nội dung: Subtitle */
   $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['label'] = '';
   $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -1580,40 +1626,41 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '200',
   );
-  /* Field: Content: Link */
+  /* Trường: Nội dung: Liên kết */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Chi tiết';
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1647,7 +1694,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1655,11 +1702,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -1678,19 +1726,19 @@ function ipbg_views_views_default_views() {
     t('Master'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
     t('Chi tiết'),
-    t('All'),
+    t('Tất cả'),
     t('Services by term'),
     t('View panes'),
     t('Latest'),
@@ -1714,6 +1762,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'flexslider';
@@ -1732,7 +1781,7 @@ function ipbg_views_views_default_views() {
     'news_slideshoe' => 0,
     'iphone_slideshow' => 0,
   );
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1744,14 +1793,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1802,11 +1851,55 @@ function ipbg_views_views_default_views() {
     'iphone_slideshow' => 0,
     'promoted_product' => 0,
   );
+
+  /* Display: Queue Slideshow */
+  $handler = $view->new_display('panel_pane', 'Queue Slideshow', 'panel_pane_6');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 0;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'best_sale' => 0,
+    'home_slideshow' => 0,
+    'app_slideshow' => 0,
+    'iphone_slideshow' => 0,
+    'news_slideshoe' => 0,
+    'promoted_product' => 0,
+    'accessories_slideshow' => 0,
+    'services' => 0,
+    'ipad_slide' => 0,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Nodequeue: Queue machine name */
+  $handler->display->display_options['arguments']['name']['id'] = 'name';
+  $handler->display->display_options['arguments']['name']['table'] = 'nodequeue_queue';
+  $handler->display->display_options['arguments']['name']['field'] = 'name';
+  $handler->display->display_options['arguments']['name']['relationship'] = 'nodequeue_rel';
+  $handler->display->display_options['arguments']['name']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['name']['exception']['title'] = 'Tất cả';
+  $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['name']['limit'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'name' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.edit-url',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Nodequeue: Queue machine name',
+    ),
+  );
   $translatables['slideshow'] = array(
     t('Master'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1817,6 +1910,8 @@ function ipbg_views_views_default_views() {
     t('Iphone slideshow'),
     t('Home slideshow'),
     t('Accessories slideshow'),
+    t('Queue Slideshow'),
+    t('Tất cả'),
   );
   $export['slideshow'] = $view;
 
@@ -1837,42 +1932,48 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1896,18 +1997,18 @@ function ipbg_views_views_default_views() {
     t('Master'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('All'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
+    t('Tất cả'),
     t('Content by term'),
     t('View panes'),
   );
@@ -1931,31 +2032,37 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Sticky */
+  /* Sort criterion: Nội dung: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  /* Contextual filter: Nội dung: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['term_node_tid_depth']['title_enable'] = TRUE;
   $handler->display->display_options['arguments']['term_node_tid_depth']['title'] = '%1';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
@@ -1966,15 +2073,16 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '9';
   $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = TRUE;
-  /* Contextual filter: Content: Has taxonomy term ID depth modifier */
+  /* Contextual filter: Nội dung: Has taxonomy term ID depth modifier */
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['id'] = 'term_node_tid_depth_modifier';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['field'] = 'term_node_tid_depth_modifier';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['exception']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['specify_validation'] = TRUE;
-  /* Filter criterion: Content: Published or admin */
+  /* Filter criterion: Nội dung: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -1997,6 +2105,10 @@ function ipbg_views_views_default_views() {
   $handler = $view->new_display('feed', 'Feed', 'feed');
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = 15;
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
   $handler->display->display_options['path'] = 'taxonomy/term/%/%/feed';
@@ -2008,18 +2120,18 @@ function ipbg_views_views_default_views() {
     t('Master'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('All'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
+    t('Tất cả'),
     t('%1'),
     t('Page'),
     t('Feed'),
@@ -2044,13 +2156,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2060,25 +2173,26 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2097,6 +2211,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'blogpost';
@@ -2108,19 +2226,19 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Relationship: Nội dung: Tác giả */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2130,7 +2248,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2147,7 +2265,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2159,7 +2277,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: User: Name */
+  /* Trường: Người dùng: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2171,7 +2289,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -2183,7 +2301,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_categories']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -2195,7 +2313,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -2213,7 +2331,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2230,7 +2348,7 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Video */
+  /* Trường: Nội dung: Video */
   $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
   $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
   $handler->display->display_options['fields']['field_video']['field'] = 'field_video';
@@ -2248,7 +2366,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_video']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_video']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_video']['empty'] = '[field_image]';
-  /* Field: Content: Slider Block */
+  /* Trường: Nội dung: Slider Block */
   $handler->display->display_options['fields']['field_slider_block']['id'] = 'field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['table'] = 'field_data_field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['field'] = 'field_slider_block';
@@ -2259,7 +2377,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_slider_block']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_slider_block']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_slider_block']['element_default_classes'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -2295,6 +2413,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'blogpost smallmedia';
@@ -2306,12 +2428,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Relationship: Nội dung: Tác giả */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Template */
+  /* Trường: Nội dung: Template */
   $handler->display->display_options['fields']['field_template']['id'] = 'field_template';
   $handler->display->display_options['fields']['field_template']['table'] = 'field_data_field_template';
   $handler->display->display_options['fields']['field_template']['field'] = 'field_template';
@@ -2321,14 +2443,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_template']['alter']['text'] = ' hasmedia';
   $handler->display->display_options['fields']['field_template']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_template']['empty'] = ' nomedia';
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2338,7 +2460,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2356,7 +2478,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2369,7 +2491,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: User: Name */
+  /* Trường: Người dùng: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2381,7 +2503,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -2393,7 +2515,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_categories']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -2405,7 +2527,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -2424,7 +2546,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2443,7 +2565,7 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Video */
+  /* Trường: Nội dung: Video */
   $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
   $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
   $handler->display->display_options['fields']['field_video']['field'] = 'field_video';
@@ -2463,7 +2585,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_video']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_video']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_video']['empty'] = '[field_image]';
-  /* Field: Content: Slider Block */
+  /* Trường: Nội dung: Slider Block */
   $handler->display->display_options['fields']['field_slider_block']['id'] = 'field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['table'] = 'field_data_field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['field'] = 'field_slider_block';
@@ -2481,7 +2603,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_slider_block']['empty'] = '[field_video]';
   $handler->display->display_options['fields']['field_slider_block']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_slider_block']['type'] = 'blockreference_without_title';
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -2519,6 +2641,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'blogpost smallmedia';
@@ -2530,12 +2656,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Relationship: Nội dung: Tác giả */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Template */
+  /* Trường: Nội dung: Template */
   $handler->display->display_options['fields']['field_template']['id'] = 'field_template';
   $handler->display->display_options['fields']['field_template']['table'] = 'field_data_field_template';
   $handler->display->display_options['fields']['field_template']['field'] = 'field_template';
@@ -2543,14 +2669,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_template']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_template']['alter']['text'] = ' hasmedia';
   $handler->display->display_options['fields']['field_template']['empty'] = ' nomedia';
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2560,7 +2686,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2578,7 +2704,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2591,7 +2717,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: User: Name */
+  /* Trường: Người dùng: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2603,7 +2729,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -2615,7 +2741,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_categories']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -2627,7 +2753,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -2646,7 +2772,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2669,7 +2795,7 @@ function ipbg_views_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Field: Content: Video */
+  /* Trường: Nội dung: Video */
   $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
   $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
   $handler->display->display_options['fields']['field_video']['field'] = 'field_video';
@@ -2689,7 +2815,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_video']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_video']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_video']['empty'] = '[field_image]';
-  /* Field: Content: Slider Block */
+  /* Trường: Nội dung: Slider Block */
   $handler->display->display_options['fields']['field_slider_block']['id'] = 'field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['table'] = 'field_data_field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['field'] = 'field_slider_block';
@@ -2702,7 +2828,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_slider_block']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_slider_block']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_slider_block']['type'] = 'blockreference_without_title';
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body_1']['id'] = 'body_1';
   $handler->display->display_options['fields']['body_1']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body_1']['field'] = 'body';
@@ -2713,7 +2839,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['body_1']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -2740,7 +2866,7 @@ function ipbg_views_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Created year + month */
+  /* Contextual filter: Nội dung: Created year + month */
   $handler->display->display_options['arguments']['created_year_month']['id'] = 'created_year_month';
   $handler->display->display_options['arguments']['created_year_month']['table'] = 'node';
   $handler->display->display_options['arguments']['created_year_month']['field'] = 'created_year_month';
@@ -2770,6 +2896,10 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« đầu';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ trước';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'sau ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'cuối »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'blogpost';
@@ -2781,19 +2911,19 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Relationship: Nội dung: Tác giả */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2803,7 +2933,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2820,7 +2950,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2832,7 +2962,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: User: Name */
+  /* Trường: Người dùng: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2844,7 +2974,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -2856,7 +2986,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_categories']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -2868,7 +2998,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -2886,7 +3016,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2903,7 +3033,7 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Video */
+  /* Trường: Nội dung: Video */
   $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
   $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
   $handler->display->display_options['fields']['field_video']['field'] = 'field_video';
@@ -2925,7 +3055,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_video']['empty'] = '<div class="postmedia">
 [field_image]
 </div>';
-  /* Field: Content: Slider Block */
+  /* Trường: Nội dung: Slider Block */
   $handler->display->display_options['fields']['field_slider_block']['id'] = 'field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['table'] = 'field_data_field_slider_block';
   $handler->display->display_options['fields']['field_slider_block']['field'] = 'field_slider_block';
@@ -2937,7 +3067,7 @@ function ipbg_views_views_default_views() {
 </div>';
   $handler->display->display_options['fields']['field_slider_block']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_slider_block']['type'] = 'blockreference_without_title';
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -2981,7 +3111,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2991,7 +3121,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -3005,7 +3135,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3014,7 +3144,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -3024,7 +3154,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['alter']['text'] = '[field_categories]';
   $handler->display->display_options['fields']['field_categories']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -3035,7 +3165,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['empty'] = '<div class="comments">No comments</div>';
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3058,11 +3188,12 @@ function ipbg_views_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['tid']['default_argument_options']['vocabularies'] = array(
@@ -3071,11 +3202,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -3089,11 +3221,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'block-archive';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Created year + month */
+  /* Contextual filter: Nội dung: Created year + month */
   $handler->display->display_options['arguments']['created_year_month']['id'] = 'created_year_month';
   $handler->display->display_options['arguments']['created_year_month']['table'] = 'node';
   $handler->display->display_options['arguments']['created_year_month']['field'] = 'created_year_month';
   $handler->display->display_options['arguments']['created_year_month']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['created_year_month']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['created_year_month']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['created_year_month']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['created_year_month']['summary']['format'] = 'default_summary';
@@ -3118,12 +3251,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Content: Author */
+  /* Relationship: Nội dung: Tác giả */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: Link */
+  /* Trường: Người dùng: Liên kết */
   $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['table'] = 'users';
   $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
@@ -3131,7 +3264,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['view_user']['label'] = '';
   $handler->display->display_options['fields']['view_user']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
-  /* Field: User: Name */
+  /* Trường: Người dùng: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3142,7 +3275,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = '[view_user]';
   $handler->display->display_options['fields']['name']['alter']['link_class'] = 'url';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3153,21 +3286,21 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog_post' => 'blog_post',
   );
-  /* Filter criterion: Content: Comment count */
+  /* Filter criterion: Nội dung: Số bình luận */
   $handler->display->display_options['filters']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['filters']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['filters']['comment_count']['field'] = 'comment_count';
@@ -3224,7 +3357,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3238,7 +3371,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date */
+  /* Trường: Nội dung: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -3251,7 +3384,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_wrapper_class'] = 'span8';
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3272,21 +3405,21 @@ function ipbg_views_views_default_views() {
     t('Blog'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('<span class="icon-right-open"></span> [title]'),
-    t('All'),
+    t('Tất cả'),
     t('Page: Large Media Sidebar'),
     t('Blog - Large Media Sidebar'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« đầu'),
+    t('‹ trước'),
+    t('sau ›'),
+    t('cuối »'),
     t('author'),
     t('<div class="day">[created_1]</div>
 <div class="month">[created]</div>'),
@@ -3361,7 +3494,6 @@ function ipbg_views_views_default_views() {
 </section>
 <div class="postdivider"></div>
 </section>'),
-    t('Tất cả'),
     t('Tin công nghệ %1'),
     t('Page: Large Media Wide'),
     t('Blog - Large Media Wide'),
@@ -3430,6 +3562,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -3438,19 +3571,19 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3478,7 +3611,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
+  /* Tiêu đề: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -3486,7 +3619,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<div class="linktext"><a href="<?php print $GLOBALS[\'base_url\'].\'/blog\'; ?>">Visit Blog</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Post date (Day) */
+  /* Trường: Content: Post date (Day) */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -3496,7 +3629,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'j';
-  /* Field: Content: Post date (Month) */
+  /* Trường: Content: Post date (Month) */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -3514,7 +3647,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'M';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3523,7 +3656,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Comment count */
+  /* Trường: Nội dung: Số bình luận */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -3533,7 +3666,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<div class="comments">[comment_count]</div>';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['suffix'] = ' comments';
-  /* Field: Content: Categories */
+  /* Trường: Nội dung: Categories */
   $handler->display->display_options['fields']['field_categories']['id'] = 'field_categories';
   $handler->display->display_options['fields']['field_categories']['table'] = 'field_data_field_categories';
   $handler->display->display_options['fields']['field_categories']['field'] = 'field_categories';
@@ -3541,7 +3674,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_categories']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_categories']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_categories']['delta_offset'] = '0';
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3560,7 +3693,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '125',
   );
-  /* Field: Content: HTML Output */
+  /* Trường: Content: HTML Output */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -3574,14 +3707,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3604,7 +3737,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
+  /* Tiêu đề: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -3612,20 +3745,20 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<div class="linktext"><a href="<?php print $GLOBALS[\'base_url\'].\'/portfolio-5col\'; ?>">See Full Portfolio</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
+  /* Phần chân: Global: Unfiltered text */
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="divider"></div>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3641,13 +3774,13 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -3655,7 +3788,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3676,14 +3809,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3711,28 +3844,28 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
+  /* Phần chân: Global: Unfiltered text */
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['label'] = 'Divider';
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="divider"></div>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Icon */
+  /* Trường: Nội dung: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
   $handler->display->display_options['fields']['field_icon']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3742,14 +3875,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Subtitle */
+  /* Trường: Nội dung: Subtitle */
   $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['label'] = '';
   $handler->display->display_options['fields']['field_subtitle']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3775,20 +3908,20 @@ function ipbg_views_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3815,7 +3948,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
+  /* Tiêu đề: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -3824,14 +3957,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3847,13 +3980,13 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -3861,7 +3994,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3882,14 +4015,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3917,35 +4050,35 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Unfiltered text */
+  /* Tiêu đề: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Divider';
   $handler->display->display_options['header']['area_text_custom']['content'] = '<div class="divider"></div>';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
+  /* Phần chân: Global: Unfiltered text */
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['label'] = 'Divider';
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="divider"></div>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Icon */
+  /* Trường: Nội dung: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
   $handler->display->display_options['fields']['field_icon']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3955,14 +4088,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Subtitle */
+  /* Trường: Nội dung: Subtitle */
   $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['label'] = '';
   $handler->display->display_options['fields']['field_subtitle']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3988,20 +4121,20 @@ function ipbg_views_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4028,7 +4161,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Text area */
+  /* Tiêu đề: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -4036,21 +4169,21 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<div class="linktext"><a href="<?php print $GLOBALS[\'base_url\'].\'/portfolio-5col\'; ?>">See Full Portfolio</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
+  /* Phần chân: Global: Unfiltered text */
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['label'] = 'Divider';
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="divider"></div>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4066,13 +4199,13 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4080,7 +4213,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4101,14 +4234,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4120,7 +4253,7 @@ function ipbg_views_views_default_views() {
     t('ThemeTastic: Homepage'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -4190,12 +4323,13 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'isotope';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Header: Global: Text area */
+  /* Tiêu đề: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -4205,19 +4339,19 @@ function ipbg_views_views_default_views() {
 					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 				</div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Header: Global: View area */
+  /* Tiêu đề: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'themetastic_taxonomy:block';
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4238,7 +4372,7 @@ function ipbg_views_views_default_views() {
     'image_style' => 'isotope_portfolio__400x225_',
     'image_link' => '',
   );
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags_1']['id'] = 'field_portfolio_tags_1';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['field'] = 'field_portfolio_tags';
@@ -4246,7 +4380,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4262,7 +4396,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Isotope Tags */
+  /* Trường: Content: Isotope Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4275,23 +4409,23 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_portfolio_tags']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags']['delta_offset'] = '0';
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4306,7 +4440,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'fivecol';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4322,14 +4456,14 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fancybox']['type'] = 'list_key';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags_1']['id'] = 'field_portfolio_tags_1';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['field'] = 'field_portfolio_tags';
@@ -4337,7 +4471,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4353,7 +4487,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Isotope Tags */
+  /* Trường: Content: Isotope Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4373,7 +4507,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'fourcol';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4388,14 +4522,14 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fancybox']['type'] = 'list_key';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags_1']['id'] = 'field_portfolio_tags_1';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['field'] = 'field_portfolio_tags';
@@ -4403,7 +4537,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4419,7 +4553,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Isotope Tags */
+  /* Trường: Content: Isotope Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4441,7 +4575,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'threecol';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4456,14 +4590,14 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fancybox']['type'] = 'list_key';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags_1']['id'] = 'field_portfolio_tags_1';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['field'] = 'field_portfolio_tags';
@@ -4471,7 +4605,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4487,7 +4621,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Isotope Tags */
+  /* Trường: Content: Isotope Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4522,14 +4656,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4545,7 +4679,7 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
@@ -4555,7 +4689,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fancybox']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_fancybox']['element_default_classes'] = FALSE;
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4563,7 +4697,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4580,11 +4714,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Has taxonomy term ID */
+  /* Contextual filter: Nội dung: Has taxonomy term ID */
   $handler->display->display_options['arguments']['tid']['id'] = 'tid';
   $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['tid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['tid']['default_argument_options']['vocabularies'] = array(
@@ -4593,11 +4728,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -4626,14 +4762,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4643,7 +4779,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Image */
+  /* Trường: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4670,7 +4806,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'threecol';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Image */
+  /* Trường: Trường: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -4685,14 +4821,14 @@ function ipbg_views_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Field: Content: Toggle Fancybox */
+  /* Trường: Nội dung: Toggle Fancybox */
   $handler->display->display_options['fields']['field_fancybox']['id'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['table'] = 'field_data_field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['field'] = 'field_fancybox';
   $handler->display->display_options['fields']['field_fancybox']['label'] = '';
   $handler->display->display_options['fields']['field_fancybox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_fancybox']['type'] = 'list_key';
-  /* Field: Content: Tags */
+  /* Trường: Nội dung: Tags */
   $handler->display->display_options['fields']['field_portfolio_tags_1']['id'] = 'field_portfolio_tags_1';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags_1']['field'] = 'field_portfolio_tags';
@@ -4700,7 +4836,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_portfolio_tags_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_portfolio_tags_1']['delta_offset'] = '0';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4716,7 +4852,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Isotope Tags */
+  /* Trường: Content: Isotope Tags */
   $handler->display->display_options['fields']['field_portfolio_tags']['id'] = 'field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['table'] = 'field_data_field_portfolio_tags';
   $handler->display->display_options['fields']['field_portfolio_tags']['field'] = 'field_portfolio_tags';
@@ -4735,7 +4871,7 @@ function ipbg_views_views_default_views() {
     t('Portfolio 4 Columns'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -4768,7 +4904,7 @@ function ipbg_views_views_default_views() {
 <span class="itemcategories">[field_portfolio_tags]</span>
 </div>
 </div>'),
-    t('All'),
+    t('Tất cả'),
     t('Block: Latest Projects'),
     t('Latest Projects'),
     t('<a href="[path]" data-rel="tooltip" data-original-title="[title]">[field_image]</a>'),
@@ -4795,24 +4931,25 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'span4';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sort criterion: Nội dung: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4832,21 +4969,21 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Icon */
+  /* Trường: Nội dung: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['label'] = '';
   $handler->display->display_options['fields']['field_icon']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4856,14 +4993,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Subtitle */
+  /* Trường: Nội dung: Subtitle */
   $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['label'] = '';
   $handler->display->display_options['fields']['field_subtitle']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -4890,14 +5027,14 @@ function ipbg_views_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4918,14 +5055,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Icon */
+  /* Trường: Nội dung: Icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
@@ -4937,7 +5074,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_icon']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_icon']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_icon']['element_default_classes'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4950,7 +5087,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Subtitle */
+  /* Trường: Nội dung: Subtitle */
   $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
   $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
@@ -4960,7 +5097,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_subtitle']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_subtitle']['element_default_classes'] = FALSE;
-  /* Field: Content: Body */
+  /* Trường: Nội dung: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -4976,11 +5113,12 @@ function ipbg_views_views_default_views() {
     'trim_length' => '600',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
+  /* Contextual filter: Nội dung: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Tất cả';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -5001,14 +5139,14 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Trường: Nội dung: Đường dẫn */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Trường: Nội dung: Tiêu đề */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5020,20 +5158,20 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
+  /* Sort criterion: Nội dung: Tiêu đề */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Nội dung: Đã công bố */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Nội dung: Kiểu */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -5045,7 +5183,7 @@ function ipbg_views_views_default_views() {
     t('Services'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -5061,7 +5199,7 @@ function ipbg_views_views_default_views() {
 </a>'),
     t('Block: Active Service'),
     t('<div class="serviceicon"><div class="[field_icon]"></div></div>'),
-    t('All'),
+    t('Tất cả'),
     t('Block: Services Menu'),
     t('<span class="icon-right-open"></span> <a href="[path]">[title]</a>'),
   );
@@ -5085,11 +5223,12 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Thiết lập lại';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'isotope_filter_block';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Taxonomy term: Name */
+  /* Trường: Từ liệu phân loại: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5102,7 +5241,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Filter criterion: Taxonomy term: Vocabulary */
+  /* Filter criterion: Từ liệu phân loại: Từ vựng */
   $handler->display->display_options['filters']['vid']['id'] = 'vid';
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
@@ -5113,7 +5252,7 @@ function ipbg_views_views_default_views() {
   /* Display: Block: Portfolio Filter */
   $handler = $view->new_display('block', 'Block: Portfolio Filter', 'block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Name */
+  /* Trường: Từ liệu phân loại: Tên */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5127,7 +5266,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy term: Vocabulary */
+  /* Filter criterion: Từ liệu phân loại: Từ vựng */
   $handler->display->display_options['filters']['vid']['id'] = 'vid';
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
@@ -5138,7 +5277,7 @@ function ipbg_views_views_default_views() {
   /* Display: Block: Categories */
   $handler = $view->new_display('block', 'Block: Categories', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Categories';
+  $handler->display->display_options['title'] = 'Mục phân loại';
   $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'block_categories';
@@ -5154,7 +5293,7 @@ function ipbg_views_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy term: Vocabulary */
+  /* Filter criterion: Từ liệu phân loại: Từ vựng */
   $handler->display->display_options['filters']['vid']['id'] = 'vid';
   $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['vid']['field'] = 'vid';
@@ -5165,7 +5304,7 @@ function ipbg_views_views_default_views() {
   /* Display: Block: Tags */
   $handler = $view->new_display('block', 'Block: Tags', 'block_tags');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Tags';
+  $handler->display->display_options['title'] = 'Thẻ';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'tagcloud';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -5184,15 +5323,15 @@ function ipbg_views_views_default_views() {
     t('Portfolio Filter'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Thiết lập lại'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Block: Portfolio Filter'),
     t('Block: Categories'),
-    t('Categories'),
+    t('Mục phân loại'),
     t('Block: Tags'),
-    t('Tags'),
+    t('Thẻ'),
   );
   $export['themetastic_taxonomy'] = $view;
 

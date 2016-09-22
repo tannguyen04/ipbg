@@ -845,7 +845,7 @@ function product_types_field_default_field_instances() {
     'commerce_cart_settings' => array(
       'attribute_field' => 1,
       'attribute_widget' => 'commerce_fancy_attributes',
-      'attribute_widget_title' => 'Color',
+      'attribute_widget_title' => 'Màu sắc',
     ),
     'default_value' => NULL,
     'deleted' => 0,
@@ -904,7 +904,7 @@ function product_types_field_default_field_instances() {
     ),
     'entity_type' => 'commerce_product',
     'field_name' => 'field_color_ref',
-    'label' => 'Color',
+    'label' => 'Màu sắc',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1035,7 +1035,7 @@ function product_types_field_default_field_instances() {
     'commerce_cart_settings' => array(
       'attribute_field' => 1,
       'attribute_widget' => 'select',
-      'attribute_widget_title' => 'Memory',
+      'attribute_widget_title' => 'Bộ nhớ',
     ),
     'default_value' => NULL,
     'deleted' => 0,
@@ -1084,7 +1084,7 @@ function product_types_field_default_field_instances() {
     ),
     'entity_type' => 'commerce_product',
     'field_name' => 'field_memory',
-    'label' => 'Memory',
+    'label' => 'Bộ nhớ',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1102,9 +1102,9 @@ function product_types_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Color');
+  t('Bộ nhớ');
   t('Images');
-  t('Memory');
+  t('Màu sắc');
   t('Price');
   t('Stock');
 

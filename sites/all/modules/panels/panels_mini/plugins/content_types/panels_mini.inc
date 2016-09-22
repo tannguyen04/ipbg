@@ -77,6 +77,24 @@ function _panels_mini_panels_mini_content_type_content_type($mini) {
       }
     }
   }
+
+  // Determine if this mini panel contains a pane that needs to be rendered
+  // either first or last.  This is not perfect as it's possible for a mini
+  // panel could contain both sorts of panes, but we'll prefer the setting for
+  // the first one we come across.
+  if (!empty($mini->display->content)) {
+    foreach ($mini->display->content as $pane) {
+      $content_type = ctools_content_get_subtype($pane->type, $pane->subtype);
+      if (!empty($content_type['render last'])) {
+        $type['render last'] = TRUE;
+        break;
+      }
+      if (!empty($content_type['render first'])) {
+        $type['render first'] = TRUE;
+        break;
+      }
+    }
+  }
   return $type;
 }
 

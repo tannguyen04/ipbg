@@ -68,7 +68,7 @@ function ipbg_views_fe_nodequeue_export_fields() {
   // Exported nodequeues: best_sale
   $nodequeues['best_sale'] = array(
     'name' => 'best_sale',
-    'title' => 'Best sale',
+    'title' => 'Home Page (Sản phẩm bán chạy)',
     'subqueue_title' => '',
     'size' => 0,
     'link' => 'Thêm vào danh sách hàng bán chạy',
@@ -165,7 +165,7 @@ function ipbg_views_fe_nodequeue_export_fields() {
   // Exported nodequeues: promoted_product
   $nodequeues['promoted_product'] = array(
     'name' => 'promoted_product',
-    'title' => 'Promoted product',
+    'title' => 'Home Page (Sản phẩm mới)',
     'subqueue_title' => '',
     'size' => 0,
     'link' => '',

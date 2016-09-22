@@ -58,7 +58,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'app_mobile' => array(
@@ -66,7 +66,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'blog_post' => array(
@@ -74,7 +74,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => t('Use the <em>blog post</em> content type to manage blog nodes with the ThemeTastic theme.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'box_banner' => array(
@@ -82,7 +82,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => t('Box banner'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'mobile' => array(
@@ -90,15 +90,15 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'navigation' => array(
-      'name' => t('Navigation'),
+      'name' => t('Điều hướng'),
       'base' => 'node_content',
       'description' => t('Content build mega menu'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'service' => array(
@@ -106,7 +106,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
     'slide' => array(
@@ -114,7 +114,7 @@ function content_type_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Tiêu đề'),
       'help' => '',
     ),
   );

@@ -95,7 +95,7 @@ function field_base_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'new_arrival' => 'New arrival',
+        'new_arrival' => 'Mới',
       ),
       'allowed_values_function' => '',
     ),
@@ -456,6 +456,7 @@ function field_base_field_default_field_bases() {
         '16g' => '16G',
         '32g' => '32G',
         '64g' => '64G',
+        '128g' => '128G',
       ),
       'allowed_values_function' => '',
     ),
@@ -525,7 +526,7 @@ function field_base_field_default_field_bases() {
   // Exported field_base: 'field_node_related'
   $field_bases['field_node_related'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 4,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_node_related',

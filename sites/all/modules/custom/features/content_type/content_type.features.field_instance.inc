@@ -24,6 +24,13 @@ function content_type_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_body_box',
@@ -59,6 +66,16 @@ function content_type_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'box_banner',
+        ),
+        'type' => 'image',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -109,6 +126,13 @@ function content_type_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 3,
       ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 1,
+      ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_link_box',
@@ -154,6 +178,13 @@ function content_type_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -754,6 +785,74 @@ function content_type_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-accessory-field_description_detail'
+  $field_instances['node-accessory-field_description_detail'] = array(
+    'bundle' => 'accessory',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'anchor_link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'ipbg_product',
+        'settings' => array(
+          'image_style' => 'large',
+          'settings_group' => 'owlcarousel_settings_default',
+          'trim_length' => '',
+        ),
+        'type' => 'owlcarousel_formatter_product',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'module' => 'ipbg_product',
+        'settings' => array(
+          'image_style' => 'large',
+          'settings_group' => 'owlcarousel_settings_default',
+          'trim_length' => '',
+        ),
+        'type' => 'owlcarousel_formatter_product',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_description_detail',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-accessory-field_image'
   $field_instances['node-accessory-field_image'] = array(
     'bundle' => 'accessory',
@@ -1104,6 +1203,99 @@ function content_type_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-accessory-field_products_ref'
+  $field_instances['node-accessory-field_products_ref'] = array(
+    'bundle' => 'accessory',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'anchor_link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 8,
+      ),
+      'featured' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_products_ref',
+    'label' => 'Products',
+    'required' => 0,
+    'settings' => array(
+      'field_injection' => 1,
+      'referenceable_types' => array(
+        'accessory' => 'accessory',
+        'app' => 0,
+        'mobile' => 0,
+        'product' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'inline_entity_form',
+      'settings' => array(
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_existing' => 1,
+          'allow_new' => 1,
+          'autogenerate_title' => 0,
+          'delete_references' => 0,
+          'label_plural' => 'products',
+          'label_singular' => 'product',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 0,
+        ),
+      ),
+      'type' => 'inline_entity_form',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-app_mobile-body'
   $field_instances['node-app_mobile-body'] = array(
     'bundle' => 'app_mobile',
@@ -1392,7 +1584,7 @@ function content_type_field_default_field_instances() {
   $field_instances['node-app_mobile-field_images'] = array(
     'bundle' => 'app_mobile',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Image nên đc upload 652x375px',
     'display' => array(
       'anchor_link' => array(
         'label' => 'above',
@@ -1454,6 +1646,7 @@ function content_type_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
           'youtube' => 0,
         ),
@@ -2145,7 +2338,7 @@ function content_type_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'trim_length' => 200,
+          'trim_length' => 150,
         ),
         'type' => 'text_summary_or_trimmed',
         'weight' => 9,
@@ -2663,7 +2856,7 @@ function content_type_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'product_feature',
+          'image_style' => 'product_featured',
         ),
         'type' => 'image',
         'weight' => 21,
@@ -3719,6 +3912,13 @@ function content_type_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -3776,6 +3976,16 @@ function content_type_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'image',
@@ -3804,12 +4014,19 @@ function content_type_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'image' => 'image',
+        ),
+        'browser_plugins' => array(),
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 44,
     ),
   );
@@ -3838,6 +4055,18 @@ function content_type_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -3892,6 +4121,13 @@ function content_type_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 3,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'module' => 'taxonomy',
@@ -3938,6 +4174,13 @@ function content_type_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 5,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'module' => 'taxonomy',
@@ -3983,6 +4226,13 @@ function content_type_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 6,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4210,6 +4460,7 @@ function content_type_field_default_field_instances() {
   t('Hãng sản xuất');
   t('Image');
   t('Image nên có kick thước 520x200');
+  t('Image nên đc upload 652x375px');
   t('Images');
   t('Items');
   t('Kiểu');

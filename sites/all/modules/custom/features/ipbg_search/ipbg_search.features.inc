@@ -178,7 +178,8 @@ function ipbg_search_default_search_api_server() {
       "database" : "default:default",
       "min_chars" : "1",
       "partial_matches" : 0,
-      "indexes" : { "node_product_index" : {
+      "indexes" : {
+        "node_product_index" : {
           "nid" : {
             "table" : "search_api_db_node_product_index",
             "column" : "nid",
@@ -277,6 +278,72 @@ function ipbg_search_default_search_api_server() {
             "table" : "search_api_db_node_product_index_field_product_series_field_co",
             "column" : "value",
             "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          }
+        },
+        "service_index" : {
+          "nid" : {
+            "table" : "search_api_db_service_index",
+            "column" : "nid",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "type" : {
+            "table" : "search_api_db_service_index",
+            "column" : "type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "title" : {
+            "table" : "search_api_db_service_index_text",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "sticky" : {
+            "table" : "search_api_db_service_index",
+            "column" : "sticky",
+            "type" : "boolean",
+            "boost" : "1.0"
+          },
+          "created" : {
+            "table" : "search_api_db_service_index",
+            "column" : "created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_product_manfacturer" : {
+            "table" : "search_api_db_service_index",
+            "column" : "field_product_manfacturer",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_product_series" : {
+            "table" : "search_api_db_service_index_field_product_series",
+            "column" : "value",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "field_mobile_price" : {
+            "table" : "search_api_db_service_index",
+            "column" : "field_mobile_price",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_services" : {
+            "table" : "search_api_db_service_index",
+            "column" : "field_services",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "search_api_language" : {
+            "table" : "search_api_db_service_index",
+            "column" : "search_api_language",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "search_api_viewed" : {
+            "table" : "search_api_db_service_index_text",
+            "type" : "text",
             "boost" : "1.0"
           }
         }

@@ -26,3 +26,4 @@ features[features_api][] = api:2
 features[search_api_index][] = default_node_index
 features[search_api_index][] = node_product_index
 features[search_api_server][] = product
+mtime = 1464411847

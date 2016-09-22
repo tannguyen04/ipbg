@@ -58,3 +58,16 @@ function ipbg_update_update_7009(&$sandbox) {
   module_disable($modules);
   features_revert_module('ipbg_views');
 }
+
+/**
+ * Implements hook_update_N().
+ * Enable admin_views module
+ */
+function ipbg_update_update_7010(&$sandbox) {
+  $modules = array(
+    'admin_views',
+  );
+  module_enable($modules);
+}
+
+
